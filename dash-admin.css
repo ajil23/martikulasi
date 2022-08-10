@@ -272,7 +272,7 @@ nav.close ~ .dashboard .top{
     border-radius: 50%;
 }
 .dashboard .dash-content{
-    padding-top: 50px;
+    padding-top: 30px;
 }
 .dash-content .title{
     display: flex;
