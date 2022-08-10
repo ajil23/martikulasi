@@ -313,10 +313,10 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
 }
 .boxes .box .text{
-    margin-left: 200%;
+    margin-left: 210%;
     margin-top: -120%;
     white-space: nowrap;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 500;
     color: var(--text-color);
 }
