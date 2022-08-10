@@ -307,11 +307,6 @@ nav.close ~ .dashboard .top{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 12px;
-    width: calc(100% / 3 - 15px);
-    padding: 15px 20px;
-    background-color: var(--box1-color);
-    transition: var(--tran-05);
 }
 .boxes .box i{
     font-size: 35px;
@@ -322,6 +317,13 @@ nav.close ~ .dashboard .top{
     font-size: 18px;
     font-weight: 500;
     color: var(--text-color);
+}
+.box-img{
+    margin-left: auto;
+    margin-top: -2% ;
+    height: 400px;
+    width: 300px;
+    border-radius: 2%;
 }
 .boxes .box .number{
     font-size: 40px;
