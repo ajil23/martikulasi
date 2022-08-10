@@ -313,15 +313,15 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
 }
 .boxes .box .text{
-    margin-left: 210%;
-    margin-top: -120%;
+    margin-left: 260%;
+    margin-top: -130%;
     white-space: nowrap;
     font-size: 21px;
     font-weight: 500;
     color: var(--text-color);
 }
 .box-img{
-    margin-left: auto;
+    margin-left: 40%;
     margin-top: -2% ;
     height: 400px;
     width: 300px;
