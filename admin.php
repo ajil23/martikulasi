@@ -37,19 +37,17 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="index.html">
+                <li><a href="index.php">
                     <i class="uil uil-sign-out-alt"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
 
                 <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moonset"></i>
-                    <span class="link-name">Dark Mode</span>
+                  
                 </a>
 
                 <div class="mode-toggle">
-                  <span class="switch"></span>
+                  
                 </div>
             </li>
             </ul>
