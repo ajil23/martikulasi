@@ -87,14 +87,16 @@
         </div>
 
         <div class="mb-3">
-            <label for="formFile" class="form-label">Default file input example</label>
+            <label for="formFile" class="form-label">Unggah Surat Izin</label>
             <input class="form-control" type="file" id="formFile">
           </div>
         
           <div class="mb-3">
-            <label for="formFile" class="form-label">Default file input example</label>
+            <label for="formFile" class="form-label">Unggah Jadwal Ujian</label>
             <input class="form-control" type="file" id="formFile">
           </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
     </section>
 
     <script src="script.js"></script>
