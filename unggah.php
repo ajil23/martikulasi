@@ -49,7 +49,7 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="index.html">
+                <li><a href="index.php">
                     <i class="uil uil-sign-out-alt"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
