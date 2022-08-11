@@ -106,6 +106,22 @@
                         <label for="exampleInputEmail1">Tanggal Selesai </label>
                         <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
                       </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Proposal </label>
+                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Proposal">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Anggota Kelompok </label>
+                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Anggota Kelompok">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Id Dosen </label>
+                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Dosen">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Id Perusahaan </label>
+                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
+                      </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
         </div>
