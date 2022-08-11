@@ -31,7 +31,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="dash-admin.html">
+                <li><a href="dash-admin.php">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
@@ -39,11 +39,11 @@
                     <i class="uil uil-file-edit-alt"></i>
                     <span class="link-name">Daftar</span>
                 </a></li>
-                <li><a href="daftar-ujian.html">
+                <li><a href="daftar-ujian.php">
                     <i class="uil uil-clipboard-notes"></i>
                     <span class="link-name">Daftar Ujian</span>
                 </a></li>
-                <li><a href="unggah.html">
+                <li><a href="unggah.php">
                     <i class="uil uil-upload-alt"></i>
                     <span class="link-name">Unggah</span>
                 </a></li>
