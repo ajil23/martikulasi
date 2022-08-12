@@ -70,7 +70,7 @@
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-estate"></i>
-                    <span class="text">Dahsboard</span>
+                    <span class="text">Dashboard</span>
                 </div>
         </div>
     </section>
