@@ -1,18 +1,18 @@
 <?php
 include 'koneksi.php';
-// menyimpan data kedalam variabel
-$nim                    = $_POST['id'];
-$tempat                 = $_POST['tempat_KP'];
-$alamat                 = $_POST['alamat_KP'];
-$tanggal_mulai          = $_POST['tanggal_Mulai'];
-$tanggal_selesai        = $_POST['tanggal_Selesai'];
-$proposal               = $_POST['proposal'];
-$anggota                = $_POST['id_anggota'];
-$dosen                  = $_POST['id_dosen'];
-$perusahaan             = $_POST['perusahaan'];
-// query SQL untuk insert data
-$query="INSERT INTO pendaftar_kp SET id='$nim',tempat_KP='$tempat',alamat_KP='$alamat',tanggal_Mulai='$tanggal_mulai',tanggal_Selesai='$tanggal_selesai',proposal='$proposal',id_anggota='$anggota',id_dosen='$dosen',perusahaan='$perusahaan'";
-mysqli_query($koneksi, $query);
-// mengalihkan ke halaman index.php
-header("location:dash-admin.php");
+
+if(isset($_POST['simpan'])){
+    mysqli_query($koneksi,"insert into pendaftaran_kp set
+    id = '$_POST[nim]',
+    tempat_KP = '$_POST[tempat]',
+    alamat_KP = '$_POST[alamat]',
+    tanggal_Mulai = '$_POST[mulai]',
+    tanggal_Selesai = '$_POST[selesai]',
+    proposal = '$_POST[proposal]',
+    id_anggota = '$_POST[anggota]',
+    id_dosen = '$_POST[dosen]',
+    perusahaan = '$_POST[perusahaan]'");
+
+    echo "Data tersimpan";
+}
 ?>

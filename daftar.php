@@ -86,47 +86,65 @@
                     <i class="uil uil-file-edit-alt"></i>
                     <span class="text">Daftar Kerja Praktek</span>
                 </div>
-                <form method="post" action="simpan-daftar.php">
+                <form method="post" action="">
                     <div class="form-group">
                       <label for="exampleInputEmail1">NIM</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan NIM">
+                      <input type="text" class="form-control" name="nim" aria-describedby="emailHelp" placeholder="Masukan NIM">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tempat Kerja Praktek</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Nama Perusahaan">
+                        <input type="text" class="form-control" name="tempat" aria-describedby="emailHelp" placeholder="Masukan Nama Perusahaan">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Alamat Kerja Praktek</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Alamat">
+                        <input type="text" class="form-control" name="alamat" aria-describedby="emailHelp" placeholder="Masukan Alamat">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tanggal Mulai </label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
+                        <input type="date" class="form-control" name="mulai" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tanggal Selesai </label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
+                        <input type="date" class="form-control" name="selesai" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Proposal </label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Proposal">
+                        <input type="text" class="form-control" name="proposal" aria-describedby="emailHelp" placeholder="Masukan Proposal">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Anggota Kelompok </label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Anggota Kelompok">
+                        <input type="text" class="form-control" name="anggota" aria-describedby="emailHelp" placeholder="Masukan Id Anggota Kelompok">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Id Dosen </label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Dosen">
+                        <input type="text" class="form-control" name="dosen" aria-describedby="emailHelp" placeholder="Masukan Id Dosen">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Id Perusahaan </label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
+                        <input type="text" class="form-control" name="perusahaan" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
                       </div>
-                    <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>
+                    <button type="submit" class="btn btn-primary" value="Simpan" name="simpan">Simpan</button>
                 </form>
            </div>
      </section>
     <script src="script.js"></script>
+    <?php
+                    include 'koneksi.php';
+
+                    if(isset($_POST['simpan'])){
+                        mysqli_query($koneksi,"insert into pendaftaran_kp set
+                        id = '$_POST[nim]',
+                        tempat_KP = '$_POST[tempat]',
+                        alamat_KP = '$_POST[alamat]',
+                        tanggal_Mulai = '$_POST[mulai]',
+                        tanggal_Selesai = '$_POST[selesai]',
+                        proposal = '$_POST[proposal]',
+                        id_anggota = '$_POST[anggota]',
+                        id_dosen = '$_POST[dosen]',
+                        perusahaan = '$_POST[perusahaan]'");
+
+                        echo "Data tersimpan";
+                    }
+                    ?>
 </body>
 </html>
