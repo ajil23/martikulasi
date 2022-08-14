@@ -117,11 +117,11 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Id Dosen </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Dosen">
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Dosen">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Id Perusahaan </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
                       </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

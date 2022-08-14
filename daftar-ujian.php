@@ -100,11 +100,11 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tanggal Mulai </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tanggal Selesai </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
                       </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
