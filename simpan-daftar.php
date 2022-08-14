@@ -14,5 +14,5 @@ $perusahaan             = $_POST['perusahaan'];
 $query="INSERT INTO mahasiswa SET id='$nim',tempat_KP='$tempat',alamat_KP='$alamat',tanggal_Mulai='$tanggal_mulai',tanggal_Selesai='$tanggal_selesai',proposal='$proposal',id_anggota='$anggota',id_dosen='$dosen',perusahaan='$perusahaan'";
 mysqli_query($koneksi, $query);
 // mengalihkan ke halaman index.php
-header("location:daftar.php");
+header("location:dash-admin.php");
 ?>
