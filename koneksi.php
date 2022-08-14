@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "tb_poliwangi";
+$database = "db_martikulasi";
 $username = "root";
 $password = "";
  
