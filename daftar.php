@@ -125,9 +125,8 @@
                       </div>
                     <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>
                 </form>
-        </div>
-    </section>
-
+           </div>
+     </section>
     <script src="script.js"></script>
 </body>
 </html>
