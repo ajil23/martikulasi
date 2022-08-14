@@ -86,7 +86,7 @@
                     <i class="uil uil-file-edit-alt"></i>
                     <span class="text">Daftar Kerja Praktek</span>
                 </div>
-                <form>
+                <form method="post" action="simpan-daftar.php">
                     <div class="form-group">
                       <label for="exampleInputEmail1">NIM</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan NIM">
@@ -123,7 +123,7 @@
                         <label for="exampleInputEmail1">Id Perusahaan </label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
                       </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>
                 </form>
         </div>
     </section>
