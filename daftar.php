@@ -101,15 +101,15 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tanggal Mulai </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tanggal Selesai </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Proposal </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Proposal">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Proposal">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Anggota Kelompok </label>
@@ -117,11 +117,11 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Id Dosen </label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Dosen">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Dosen">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Id Perusahaan </label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
                       </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
