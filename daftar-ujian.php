@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Daftar Ujian KP</title> 
+    <title>Pendaftar Ujian KP</title> 
 </head>
 <body>
     <nav>
@@ -37,11 +37,11 @@
                 </a></li>
                 <li><a href="daftar.php">
                     <i class="uil uil-file-edit-alt"></i>
-                    <span class="link-name">Daftar</span>
+                    <span class="link-name">Pendaftar</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-clipboard-notes"></i>
-                    <span class="link-name">Daftar Ujian</span>
+                    <span class="link-name">Pendaftar Ujian</span>
                 </a></li>
                 <li><a href="unggah.php">
                     <i class="uil uil-upload-alt"></i>
@@ -83,31 +83,8 @@
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-clipboard-notes"></i>
-                    <span class="text">Daftar Ujian Kerja Praktek</span>
+                    <span class="text">Pendaftar Ujian Kerja Praktek</span>
                 </div>
-                <form>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">NIM</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan NIM">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Tempat Kerja Praktek</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Nama Perusahaan">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Alamat Kerja Praktek</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Alamat">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Mulai </label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Selesai </label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
-                      </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
         </div>
     </section>
 

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
 
-    <title>Daftar KP</title> 
+    <title>Pendaftar KP</title> 
 </head>
 <body>
     <nav>
@@ -38,11 +38,11 @@
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-file-edit-alt"></i>
-                    <span class="link-name">Daftar</span>
+                    <span class="link-name">Pendaftar</span>
                 </a></li>
                 <li><a href="daftar-ujian.php">
                     <i class="uil uil-clipboard-notes"></i>
-                    <span class="link-name">Daftar Ujian</span>
+                    <span class="link-name">Pendaftar Ujian</span>
                 </a></li>
                 <li><a href="unggah.php">
                     <i class="uil uil-upload-alt"></i>
@@ -84,47 +84,8 @@
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-file-edit-alt"></i>
-                    <span class="text">Daftar Kerja Praktek</span>
+                    <span class="text">Pendaftar Kerja Praktek</span>
                 </div>
-                <form method="post" action="simpan-daftar.php">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">NIM</label>
-                      <input type="text" class="form-control" name="nim" aria-describedby="emailHelp" placeholder="Masukan NIM">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Tempat Kerja Praktek</label>
-                        <input type="text" class="form-control" name="tempat" aria-describedby="emailHelp" placeholder="Masukan Nama Perusahaan">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Alamat Kerja Praktek</label>
-                        <input type="text" class="form-control" name="alamat" aria-describedby="emailHelp" placeholder="Masukan Alamat">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Mulai </label>
-                        <input type="date" class="form-control" name="mulai" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Selesai </label>
-                        <input type="date" class="form-control" name="selesai" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Proposal </label>
-                        <input type="text" class="form-control" name="proposal" aria-describedby="emailHelp" placeholder="Masukan Proposal">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Anggota Kelompok </label>
-                        <input type="text" class="form-control" name="anggota" aria-describedby="emailHelp" placeholder="Masukan Id Anggota Kelompok">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Id Dosen </label>
-                        <input type="text" class="form-control" name="dosen" aria-describedby="emailHelp" placeholder="Masukan Id Dosen">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Id Perusahaan </label>
-                        <input type="text" class="form-control" name="perusahaan" aria-describedby="emailHelp" placeholder="Masukan Id Perusahaan">
-                      </div>
-                    <button type="submit" class="btn btn-primary" value="Simpan" name="simpan">Simpan</button>
-                </form>
            </div>
      </section>
     <script src="script.js"></script>

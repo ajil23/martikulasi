@@ -37,11 +37,11 @@
                 </a></li>
                 <li><a href="daftar.php">
                     <i class="uil uil-file-edit-alt"></i>
-                    <span class="link-name">Daftar</span>
+                    <span class="link-name">Pendaftar</span>
                 </a></li>
                 <li><a href="daftar-ujian.php">
                     <i class="uil uil-clipboard-notes"></i>
-                    <span class="link-name">Daftar Ujian</span>
+                    <span class="link-name">Pendaftar Ujian</span>
                 </a></li>
                 <li><a href="unggah.php">
                     <i class="uil uil-upload-alt"></i>
