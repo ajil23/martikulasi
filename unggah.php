@@ -87,16 +87,18 @@
         </div>
 
         <div class="mb-3">
+            <form action="upload.php" method="post" enctype="multipart/form-data">
             <label for="formFile" class="form-label">Unggah Surat Izin</label>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" name="berkas">
           </div>
         
           <div class="mb-3">
             <label for="formFile" class="form-label">Unggah Jadwal Ujian</label>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" name="berkas">
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="submit" class="btn btn-primary" name="upload" value="unggah"/>
+            </form>
     </section>
 
     <script src="script.js"></script>
