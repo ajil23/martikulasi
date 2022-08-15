@@ -63,7 +63,7 @@
                 <input type="text" placeholder="Cari...">
             </div>
             
-            <img src="asset/1125Copy.png" alt="">
+            <img src="asset/admin.jpg" alt="">
         </div>
 
         <div class="dash-content">

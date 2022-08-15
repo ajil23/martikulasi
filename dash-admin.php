@@ -76,7 +76,7 @@
                 <input type="text" placeholder="Cari...">
             </div>
             
-            <img src="asset/1125Copy.png" alt="">
+            <img src="asset/dosen.jpg" alt="">
         </div>
 
         <div class="dash-content">
@@ -86,12 +86,6 @@
                     <span class="text">Dashboard</span>
                 </div>
         </div>
-
-       <!--  <div class="boxes">
-            <div class="box box1">
-                
-            </div>
-        </div> -->
         </div>
     </section>
 
