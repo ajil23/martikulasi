@@ -85,6 +85,36 @@
                     <i class="uil uil-clipboard-notes"></i>
                     <span class="text">Pendaftar Ujian Kerja Praktek</span>
                 </div>
+                <table class="table" border="1">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Laporan</th>
+                        <th scope="col">Jadwal</th>
+                        <th scope="col">Id Pendaftar</th>
+                        <th scope="col">Id ACC</th>
+                    </tr>
+                    </thead>
+                    
+                    <!--script php -->
+                    <?php
+                    include "koneksi.php";
+                    $id=1107;
+                    $ambildata = mysqli_query($koneksi,"select * from pendaftar_ujiankp");
+                    while ($tampil = mysqli_fetch_array($ambildata)){
+                        echo "
+                        <tr>
+                            <td>$tampil[id]</td>
+                            <td>$tampil[laporan]</td>
+                            <td>$tampil[jadwal]</td>
+                            <td>$tampil[id_pendaftaran]</td>
+                            <td>$tampil[id_acc]</td>
+                        </tr>";
+                        $id++;
+                    }
+                    ?>
+                </table>
+            </div>
         </div>
     </section>
 
