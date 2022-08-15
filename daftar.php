@@ -86,7 +86,46 @@
                     <i class="uil uil-file-edit-alt"></i>
                     <span class="text">Pendaftar Kerja Praktek</span>
                 </div>
+                <table class="table" border="1">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Tempat</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Mulai</th>
+                        <th scope="col">Selesai</th>
+                        <th scope="col">Proposal</th>
+                        <th scope="col">Anggota</th>
+                        <th scope="col">Dosen</th>
+                        <th scope="col">Perusahaan</th>
+                    </tr>
+                    </thead>
+                    
+                    <!--script php -->
+                    <?php
+                    include "koneksi.php";
+                    $id=1107;
+                    $ambildata = mysqli_query($koneksi,"select * from pendaftar_kp");
+                    while ($tampil = mysqli_fetch_array($ambildata)){
+                        echo "
+                        <tr>
+                            <td>$tampil[id]</td>
+                            <td>$tampil[tempat_KP]</td>
+                            <td>$tampil[alamat_KP]</td>
+                            <td>$tampil[tanggal_Mulai]</td>
+                            <td>$tampil[tanggal_Selesai]</td>
+                            <td>$tampil[proposal]</td>
+                            <td>$tampil[id_anggota]</td>
+                            <td>$tampil[id_dosen]</td>
+                            <td>$tampil[perusahaan]</td>
+                        </tr>";
+                        $id++;
+                    }
+
+                    ?>
+                </table>
            </div>
+        </div>
      </section>
     <script src="script.js"></script>
 </body>
