@@ -126,6 +126,8 @@
            </div>
         </div>
      </section>
+     
+     <!-- script javascript -->
     <script src="script.js"></script>
 </body>
 </html>

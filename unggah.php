@@ -97,7 +97,7 @@
             <input class="form-control" type="file" name="berkas">
           </div>
 
-          <input type="submit" class="btn btn-primary" name="upload" value="unggah"/>
+          <input type="submit" class="btn btn-primary" name="upload" value="Upload"/>
             </form>
     </section>
 
