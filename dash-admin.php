@@ -102,7 +102,7 @@
                             <th scope="row">Anggota</th>
                             <th scope="row">Dosen</th>
                             <th scope="row">Perusahaan</th>
-                            
+                            <th colspan="2">Aksi</th>
                         </tr>
                     </thead>
 
@@ -123,55 +123,21 @@
                             <td>$tampil[id_anggota]</td>
                             <td>$tampil[id_dosen]</td>
                             <td>$tampil[perusahaan]</td>
+                            <td><a href='?id=$tampil[id]'>Hapus </a></td>
+                            <td>Edit</td>
                         </tr>";
                         $id++;
                     }
                     ?>
                 </table>
-                <th scope="row">
-                                 <button type="button" class="btn btn-info">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                </th>
-
-
-                <div class="title">
-                    <span class="text">Pendaftar Ujian Kerja Praktek</span>
-                </div>
-                <table class="table" border="1">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="row">Id</th>
-                            <th scope="row">Laporan</th>
-                            <th scope="row">Jadwal</th>
-                            <th scope="row">Id Pendaftar</th>
-                            <th scope="row">Id ACC</th>
-                        </tr>
-                    </thead>
-
-                    <!--script php -->
-                    <?php
-                    include "koneksi.php";
-                    $id = 1107;
-                    $ambildata = mysqli_query($koneksi, "select * from pendaftar_ujiankp");
-                    while ($tampil = mysqli_fetch_array($ambildata)) {
-                        echo "
-                        <tr>
-                            <td>$tampil[id]</td>
-                            <td>$tampil[laporan]</td>
-                            <td>$tampil[jadwal]</td>
-                            <td>$tampil[id_pendaftaran]</td>
-                            <td>$tampil[id_acc]</td>
-                        </tr>";
-                        $id++;
-                    }
-                    ?>
-                </table>
-                 <th scope="row">
-                                 <button type="button" class="btn btn-info">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                </th>
+                <?php
+                         if(isset($_GET['id'])){
+                             mysqli_query($koneksi, "delete from pendaftar_kp where id='$_GET[id]' ");
+                             echo "Data telah terhapus";
+                             echo "<meta http-equiv=refresh content=2;URL='dash-admin.php'>";
+                     }
+                     ?>
             </div>
-        </div>
         </div>
     </section>
 
