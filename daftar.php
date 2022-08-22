@@ -105,7 +105,7 @@
                     <?php
                     include "koneksi.php";
                     $id=1107;
-                    $ambildata = mysqli_query($koneksi,"select * from pendaftar_kp");
+                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftar_kp");
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
