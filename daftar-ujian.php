@@ -99,7 +99,7 @@
                     <!--script php -->
                     <?php
                     include "koneksi.php";
-                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftar_ujian_kp");
+                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftaran_ujian_kp");
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
