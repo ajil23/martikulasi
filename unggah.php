@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="unggah.css">
     <link rel="icon" sizes="180x180" href="asset/android-chrome-192x192.png">
     <link rel="icon" sizes="32x32" href="asset/poliwangi 32x32.png">
     <link rel="icon" sizes="16x16" href="asset/poliwangi 16x16.png">
@@ -15,8 +15,8 @@
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
-    <title>Admin</title> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Unggah Berkas</title> 
 </head>
 <body>
     <nav>
@@ -30,26 +30,36 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="dash-admin.php">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
+                </a></li>
+                <li><a href="daftar.php">
+                    <i class="uil uil-file-edit-alt"></i>
+                    <span class="link-name">Pendaftar</span>
+                </a></li>
+                <li><a href="daftar-ujian.php">
+                    <i class="uil uil-clipboard-notes"></i>
+                    <span class="link-name">Pendaftar Ujian</span>
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-upload-alt"></i>
+                    <span class="link-name">Unggah</span>
                 </a></li>
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="index.html">
+                <li><a href="index.php">
                     <i class="uil uil-sign-out-alt"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
 
                 <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moonset"></i>
-                    <span class="link-name">Dark Mode</span>
+                  
                 </a>
 
                 <div class="mode-toggle">
-                  <span class="switch"></span>
+                 
                 </div>
             </li>
             </ul>
@@ -65,16 +75,30 @@
                 <input type="text" placeholder="Cari...">
             </div>
             
-            <img src="asset/1125Copy.png" alt="">
+            <img src="asset/dosen.jpg" alt="">
         </div>
 
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="uil uil-estate"></i>
-                    <span class="text">Dahsboard</span>
+                    <i class="uil uil-upload-alt"></i>
+                    <span class="text">Unggah Berkas</span>
                 </div>
         </div>
+
+        <div class="mb-3">
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="formFile" class="form-label">Unggah Surat Izin</label>
+            <input class="form-control" type="file" name="berkas">
+          </div>
+        
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Unggah Jadwal Ujian</label>
+            <input class="form-control" type="file" name="berkas">
+          </div>
+
+          <input type="submit" class="btn btn-primary" name="upload" value="Upload"/>
+            </form>
     </section>
 
     <script src="script.js"></script>

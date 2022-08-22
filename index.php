@@ -32,7 +32,7 @@
 
                         </div>
     
-                        <a href="dash-admin.html">
+                        <a href="dash-admin.php">
                             <div class="input-field button" >
                                 <input type="button" value="Masuk">
                             </div>

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Daftar Ujian KP</title> 
+    <title>Pendaftar Ujian KP</title> 
 </head>
 <body>
     <nav>
@@ -31,26 +31,26 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="dash-admin.html">
+                <li><a href="dash-admin.php">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
-                <li><a href="daftar.html">
+                <li><a href="daftar.php">
                     <i class="uil uil-file-edit-alt"></i>
-                    <span class="link-name">Daftar</span>
+                    <span class="link-name">Pendaftar</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-clipboard-notes"></i>
-                    <span class="link-name">Daftar Ujian</span>
+                    <span class="link-name">Pendaftar Ujian</span>
                 </a></li>
-                <li><a href="unggah.html">
+                <li><a href="unggah.php">
                     <i class="uil uil-upload-alt"></i>
                     <span class="link-name">Unggah</span>
                 </a></li>
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="index.html">
+                <li><a href="index.php">
                     <i class="uil uil-sign-out-alt"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
@@ -76,38 +76,45 @@
                 <input type="text" placeholder="Cari...">
             </div>
             
-            <img src="asset/1125Copy.png" alt="">
+            <img src="asset/dosen.jpg" alt="">
         </div>
 
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-clipboard-notes"></i>
-                    <span class="text">Daftar Ujian Kerja Praktek</span>
+                    <span class="text">Pendaftar Ujian Kerja Praktek</span>
                 </div>
-                <form>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">NIM</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan NIM">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Tempat Kerja Praktek</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Nama Perusahaan">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Alamat Kerja Praktek</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Alamat">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Mulai </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Mulai">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Selesai </label>
-                        <input type="datetime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Tanggal Selesai">
-                      </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                <table class="table" border="1">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Laporan</th>
+                        <th scope="col">Jadwal</th>
+                        <th scope="col">Id Pendaftar</th>
+                        <th scope="col">Id ACC</th>
+                    </tr>
+                    </thead>
+                    
+                    <!--script php -->
+                    <?php
+                    include "koneksi.php";
+                    $id=1107;
+                    $ambildata = mysqli_query($koneksi,"select * from pendaftar_ujiankp");
+                    while ($tampil = mysqli_fetch_array($ambildata)){
+                        echo "
+                        <tr>
+                            <td>$tampil[id]</td>
+                            <td>$tampil[laporan]</td>
+                            <td>$tampil[jadwal]</td>
+                            <td>$tampil[id_pendaftaran]</td>
+                            <td>$tampil[id_acc]</td>
+                        </tr>";
+                        $id++;
+                    }
+                    ?>
+                </table>
+            </div>
         </div>
     </section>
 
