@@ -99,16 +99,15 @@
                     <!--script php -->
                     <?php
                     include "koneksi.php";
-                    $id=1107;
-                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftar_ujiankp");
+                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftar_ujian_kp");
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
-                            <td>$tampil[id]</td>
-                            <td>$tampil[laporan]</td>
-                            <td>$tampil[jadwal]</td>
-                            <td>$tampil[id_pendaftaran]</td>
-                            <td>$tampil[id_acc]</td>
+                            <td>$tampil[Id]</td>
+                            <td>$tampil[Laporan_KP]</td>
+                            <td>$tampil[Jadwal_Ujian]</td>
+                            <td>$tampil[Pendaftaran_KP_Id]</td>
+                            <td>$tampil[ACC_Ujian_Id]</td>
                         </tr>";
                         $id++;
                     }
