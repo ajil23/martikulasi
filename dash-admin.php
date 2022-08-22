@@ -170,7 +170,7 @@
                             <td>$tampil[id_pendaftaran]</td>
                             <td>$tampil[id_acc]</td>
                             <td><a href='?id=$tampil[id]'>Hapus </a></td>
-                            <td>Edit</td>
+                            <td><a href='ubah.php?id=$tampil[id]'>Edit </a></td>
                         </tr>";
                         $id++;
                     }
