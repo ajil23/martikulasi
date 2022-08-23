@@ -91,8 +91,8 @@
                         <th scope="col">Id</th>
                         <th scope="col">Laporan</th>
                         <th scope="col">Jadwal</th>
-                        <th scope="col">Id Pendaftar</th>
-                        <th scope="col">Id ACC</th>
+                        <th scope="col">Pendaftar</th>
+                        <th scope="col">ACC</th>
                     </tr>
                     </thead>
                     
