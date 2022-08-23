@@ -87,7 +87,7 @@
                     <i class="uil uil-estate"></i>
                     <span class="text">Dashboard</span>
                 </div>
-
+                
             </div>
         </div>
     </section>
