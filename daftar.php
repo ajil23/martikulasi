@@ -109,15 +109,15 @@
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
-                            <td>$tampil[id]</td>
-                            <td>$tampil[tempat_KP]</td>
-                            <td>$tampil[alamat_KP]</td>
-                            <td>$tampil[tanggal_Mulai]</td>
-                            <td>$tampil[tanggal_Selesai]</td>
-                            <td>$tampil[proposal]</td>
-                            <td>$tampil[id_anggota]</td>
-                            <td>$tampil[id_dosen]</td>
-                            <td>$tampil[perusahaan]</td>
+                            <td>$tampil[Id]</td>
+                            <td>$tampil[Tempat_KP]</td>
+                            <td>$tampil[Alamat_KP]</td>
+                            <td>$tampil[Tanggal_Mulai]</td>
+                            <td>$tampil[Tanggal_Selesai]</td>
+                            <td>$tampil[Proposal]</td>
+                            <td>$tampil[Anggota_Kelompok_Id]</td>
+                            <td>$tampil[Dosen_Id]</td>
+                            <td>$tampil[Perusahaan_Id]</td>
                         </tr>";
                         $id++;
                     }
