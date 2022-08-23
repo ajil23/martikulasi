@@ -84,8 +84,8 @@
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="uil uil-estate"></i>
-                    <span class="text">Dashboard</span>
+                    <i class="uil uil-clipboard-notes"></i>
+                    <span class="text">Pendaftaran Ujian Kerja Praktek</span>
                 </div>
                 
             </div>
