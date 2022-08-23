@@ -87,7 +87,32 @@
                     <i class="uil uil-clipboard-notes"></i>
                     <span class="text">Pendaftaran Ujian Kerja Praktek</span>
                 </div>
-                
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Id</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Masukan Id">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Tempat Kerja Praktek</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Tempat KP">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Alamat Kerja Praktek</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Alamat KP">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Tanggal Mulai</label>
+                        <input type="date" class="form-control" id="formGroupExampleInput2">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Tanggal Selesai</label>
+                        <input type="date" class="form-control" id="formGroupExampleInput2">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Proposal</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Proposal KP">
+                    </div>
+                </form>
             </div>
         </div>
     </section>
