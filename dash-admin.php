@@ -81,7 +81,16 @@
                     <i class="uil uil-estate"></i>
                     <span class="text">Dashboard</span>
                 </div>
-                
+                <div class="con">
+                    <div class="chart">
+                        <canvas id="barchart" width="400" height="400"></canvas>
+                    </div>
+                    <div class="chart">
+                        <canvas id="doughnut" width="400" height="400"></canvas>
+                    </div>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+                <script src="chart.js"></script>
             </div>
         </div>
     </section>

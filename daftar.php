@@ -110,7 +110,7 @@
                             <td>$tampil[Nama_Anggota]</td>
                             <td>$tampil[Nama_Dosen]</td>
                             <td>
-                                 <a href='?hapus=$tampil[Id_pdftr]' onClick=\"return confirm('Afa Yakin?');\">Hapus</a>
+                                 <a href='?hapus=$tampil[Id_pdftr]' onClick=\"return confirm('Yakin dek?');\">Hapus</a>
                             </td>
                         </tr>";
                         $id++;
