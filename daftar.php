@@ -84,8 +84,8 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Perusahaan</th>
                         <th scope="col">Proposal</th>
+                        <th scope="col">Perusahaan</th>
                         <th scope="col">Anggota</th>
                         <th scope="col">Dosen</th>
                     </tr>
@@ -95,15 +95,19 @@
                     <?php
                     include "koneksi.php";
                     $id=1107;
-                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftaran_kp, tb_perusahaan where tb_pendaftaran_kp.Id_corp = tb_perusahaan.Id_corp");
+                    $ambildata = mysqli_query($koneksi,"select tb_pendaftaran_kp.Id_pdftr, tb_perusahaan.Nama_Perusahaan, tb_pendaftaran_kp.Proposal,tb_anggota_kelompok.Nama_Anggota, tb_dosen.Nama_Dosen from tb_pendaftaran_kp
+                    join tb_perusahaan on tb_pendaftaran_kp.Id_corp = tb_perusahaan.Id_corp
+                    join tb_anggota_kelompok on tb_pendaftaran_kp.Id_angta = tb_anggota_kelompok.Id_angta
+                    join tb_dosen on tb_pendaftaran_kp.Id_dsn = tb_dosen.Id_dsn
+                    ");
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
                             <td>$tampil[Id_pdftr]</td>
-                            <td>$tampil[Nama_Perusahaan]</td>
                             <td>$tampil[Proposal]</td>
-                            <td>$tampil[Id_angta]</td>
-                            <td>$tampil[Id_dsn]</td>
+                            <td>$tampil[Nama_Perusahaan]</td>
+                            <td>$tampil[Nama_Anggota]</td>
+                            <td>$tampil[Nama_Dosen]</td>
                         </tr>";
                         $id++;
                     }
