@@ -71,12 +71,6 @@
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Cari...">
-            </div>
-            
             <img src="asset/dosen.jpg" alt="">
         </div>
 
@@ -90,7 +84,6 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Alamat</th>
                         <th scope="col">Proposal</th>
                         <th scope="col">Anggota</th>
                         <th scope="col">Dosen</th>
@@ -107,7 +100,6 @@
                         echo "
                         <tr>
                             <td>$tampil[Id]</td>
-                            <td>$tampil[Alamat_KP]</td>
                             <td>$tampil[Proposal]</td>
                             <td>$tampil[Anggota_Kelompok_Id]</td>
                             <td>$tampil[Dosen_Id]</td>
