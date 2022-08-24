@@ -1,3 +1,50 @@
+<?php
+include "koneksi.php"; 
+if (isset($_POST['login'])) {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $usernameinput = $_POST['username'];
+        $passwordinput = $_POST['password'];
+
+        $query = "select * from tb_user left join tb_user_role on tb_user.Id_Role = tb_user_role.Id_User where Username = '$usernameinput'";
+        $mysql = mysqli_query($koneksi,$query);
+
+        if  (mysqli_num_rows($mysql) === 1) {
+            
+            $input = mysqli_fetch_assoc($mysql);
+            if ($passwordinput == $input["Password"]) {
+                
+                switch($input["Role"]) {
+                    case "Mahasiswa" :
+                        // header("location: http://localhost/martikulasi/index.php" );
+                        exit;
+                        break;
+                    case "Dosen" :
+                        // header("location: http://localhost/martikulasi/index.php" );
+                        exit;
+                        break;
+                    case "Koordinator KP" :
+                        header("location: http://localhost/martikulasi/dash-admin.php" );
+                        exit;
+                        break;
+                    case "Admin" :
+                        header("location: http://localhost/martikulasi/admin.php" );
+                        exit;
+                        break;
+                }
+            
+            } else {
+                //pesan error password salah
+            }
+    
+        } else {
+            //pesan error akun blm terdaftar
+        }  
+        
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,26 +64,24 @@
         <div class="forms">
                 <div class="form login" >
                     <span class="title" id="masuk">Masuk</span>
-                    <form action="#">
+                    <form action="" method="post">
                         <div class="input-field">
-                            <input type="text" placeholder="Username" required>
+                            <input type="text" name="username" id ="username" placeholder = "username" require>
                             <i class="uil uil-user"></i>
                         </div>
-                        <div class="input-field">
-                            <input type="password" class="password" placeholder="Katasandi" required>
+                        <div class="input-field" >
+                            <input type="password" class="password" name="password" id ="password" placeholder ="Katasandi" require>
                             <i class="uil uil-lock-alt"></i>
                             <i class="uil uil-eye-slash showHidePw"></i>
                         </div>
-    
+                    
                         <div class="checkbox-text">
-
                         </div>
-    
-                        <a href="dash-admin.php">
-                            <div class="input-field button" >
-                                <input type="button" value="Masuk">
-                            </div>
-                        </a>
+
+                        <div class="input-field button" >
+                            <input type="submit" value="Masuk" name = "login">
+                        </div>
+                        
                     </form>
                 </div>
         </div>
