@@ -100,8 +100,8 @@
                             <td>$tampil[Id_ujian]</td>
                             <td>$tampil[Laporan_KP]</td>
                             <td>$tampil[Jadwal_Ujian]</td>
-                            <td>$tampil[Pendaftaran_KP_Id]</td>
-                            <td>$tampil[ACC_Ujian_Id]</td>
+                            <td>$tampil[Id_pdftr]</td>
+                            <td>$tampil[Id_acc]</td>
                         </tr>";
                     }
                     ?>

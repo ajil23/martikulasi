@@ -84,11 +84,10 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Alamat</th>
+                        <th scope="col">Perusahaan</th>
                         <th scope="col">Proposal</th>
                         <th scope="col">Anggota</th>
                         <th scope="col">Dosen</th>
-                        <th scope="col">Perusahaan</th>
                     </tr>
                     </thead>
                     
@@ -96,16 +95,15 @@
                     <?php
                     include "koneksi.php";
                     $id=1107;
-                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftaran_kp");
+                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftaran_kp, tb_perusahaan where tb_pendaftaran_kp.Id_corp = tb_perusahaan.Id_corp");
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
                             <td>$tampil[Id_pdftr]</td>
-                            <td>$tampil[Alamat_KP]</td>
+                            <td>$tampil[Nama_Perusahaan]</td>
                             <td>$tampil[Proposal]</td>
-                            <td>$tampil[Anggota_Kelompok_Id]</td>
-                            <td>$tampil[Dosen_Id]</td>
-                            <td>$tampil[Perusahaan_Id]</td>
+                            <td>$tampil[Id_angta]</td>
+                            <td>$tampil[Id_dsn]</td>
                         </tr>";
                         $id++;
                     }
