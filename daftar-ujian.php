@@ -83,25 +83,23 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
+                        <th scope="col">Pendaftar</th>
                         <th scope="col">Laporan</th>
                         <th scope="col">Jadwal</th>
-                        <th scope="col">Pendaftar</th>
-                        <th scope="col">ACC</th>
                     </tr>
                     </thead>
                     
                     <!--script php -->
                     <?php
                     include "koneksi.php";
-                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftaran_ujian_kp");
+                    $ambildata = mysqli_query($koneksi,"select tb_pendaftaran_ujian_kp.Id_ujian,tb_pendaftaran_ujian_kp.Laporan_KP,tb_pendaftaran_ujian_kp.Jadwal_Ujian,tb_pendaftaran_kp.Id_pdftr from tb_pendaftaran_ujian_kp join tb_pendaftaran_kp on tb_pendaftaran_ujian_kp.Id_pdftr = tb_pendaftaran_kp.Id_pdftr ");
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
                             <td>$tampil[Id_ujian]</td>
+                            <td>$tampil[Id_pdftr]</td>
                             <td>$tampil[Laporan_KP]</td>
                             <td>$tampil[Jadwal_Ujian]</td>
-                            <td>$tampil[Id_pdftr]</td>
-                            <td>$tampil[Id_acc]</td>
                         </tr>";
                     }
                     ?>

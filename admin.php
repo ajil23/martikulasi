@@ -81,20 +81,22 @@
                         <th scope="col">Pembimbing Lapangan</th>
                         <th scope="col">Pembimbing KP</th>
                         <th scope="col">Penguji</th>
+                        <th scope="col">Pengujian KP</th>
                     </tr>
                     </thead>
                     
                     <!--script php -->
                     <?php
                     include "koneksi.php";
-                    $ambildata = mysqli_query($koneksi,"select * from tb_nilai");
+                    $ambildata = mysqli_query($koneksi,"select tb_nilai.Id_nilai, tb_nilai.Nilai_Pembimbing_Lapangan,  tb_nilai.Nilai_Pembimbing_KP, tb_nilai.Nilai_Penguji, tb_pendaftaran_ujian_kp.Id_ujian from tb_nilai join tb_pendaftaran_ujian_kp on tb_nilai.Id_ujian = tb_pendaftaran_ujian_kp.Id_ujian");
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
-                            <td>$tampil[Id]</td>
+                            <td>$tampil[Id_nilai]</td>
                             <td>$tampil[Nilai_Pembimbing_Lapangan]</td>
                             <td>$tampil[Nilai_Pembimbing_KP]</td>
                             <td>$tampil[Nilai_Penguji]</td>
+                            <td>$tampil[Id_ujian]</td>
                         </tr>";
                     }
                     ?>
