@@ -100,7 +100,7 @@
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
-                            <td>$tampil[Id]</td>
+                            <td>$tampil[Id_pdftr]</td>
                             <td>$tampil[Alamat_KP]</td>
                             <td>$tampil[Proposal]</td>
                             <td>$tampil[Anggota_Kelompok_Id]</td>
