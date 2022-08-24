@@ -15,6 +15,7 @@
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Admin</title> 
 </head>
@@ -72,6 +73,33 @@
                     <i class="uil uil-estate"></i>
                     <span class="text">Dashboard</span>
                 </div>
+
+                <table class="table" border="1">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Pembimbing Lapangan</th>
+                        <th scope="col">Pembimbing KP</th>
+                        <th scope="col">Penguji</th>
+                    </tr>
+                    </thead>
+                    
+                    <!--script php -->
+                    <?php
+                    include "koneksi.php";
+                    $ambildata = mysqli_query($koneksi,"select * from tb_nilai");
+                    while ($tampil = mysqli_fetch_array($ambildata)){
+                        echo "
+                        <tr>
+                            <td>$tampil[Id]</td>
+                            <td>$tampil[Nilai_Pembimbing_Lapangan]</td>
+                            <td>$tampil[Nilai_Pembimbing_KP]</td>
+                            <td>$tampil[Nilai_Penguji]</td>
+                        </tr>";
+                    }
+                    ?>
+                </table>
+
         </div>
     </section>
 
