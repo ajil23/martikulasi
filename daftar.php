@@ -71,12 +71,6 @@
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Cari...">
-            </div>
-            
             <img src="asset/dosen.jpg" alt="">
         </div>
 
@@ -90,14 +84,11 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Tempat</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">Mulai</th>
-                        <th scope="col">Selesai</th>
                         <th scope="col">Proposal</th>
+                        <th scope="col">Perusahaan</th>
                         <th scope="col">Anggota</th>
                         <th scope="col">Dosen</th>
-                        <th scope="col">Perusahaan</th>
+                        <th scope="col" colspan="1">Aksi</th>
                     </tr>
                     </thead>
                     
@@ -105,24 +96,33 @@
                     <?php
                     include "koneksi.php";
                     $id=1107;
-                    $ambildata = mysqli_query($koneksi,"select * from tb_pendaftaran_kp");
+                    $ambildata = mysqli_query($koneksi,"select tb_pendaftaran_kp.Id_pdftr, tb_perusahaan.Nama_Perusahaan, tb_pendaftaran_kp.Proposal,tb_anggota_kelompok.Nama_Anggota, tb_dosen.Nama_Dosen from tb_pendaftaran_kp
+                    join tb_perusahaan on tb_pendaftaran_kp.Id_corp = tb_perusahaan.Id_corp
+                    join tb_anggota_kelompok on tb_pendaftaran_kp.Id_angta = tb_anggota_kelompok.Id_angta
+                    join tb_dosen on tb_pendaftaran_kp.Id_dsn = tb_dosen.Id_dsn
+                    ");
                     while ($tampil = mysqli_fetch_array($ambildata)){
                         echo "
                         <tr>
-                            <td>$tampil[id]</td>
-                            <td>$tampil[tempat_KP]</td>
-                            <td>$tampil[alamat_KP]</td>
-                            <td>$tampil[tanggal_Mulai]</td>
-                            <td>$tampil[tanggal_Selesai]</td>
-                            <td>$tampil[proposal]</td>
-                            <td>$tampil[id_anggota]</td>
-                            <td>$tampil[id_dosen]</td>
-                            <td>$tampil[perusahaan]</td>
+                            <td>$tampil[Id_pdftr]</td>
+                            <td>$tampil[Proposal]</td>
+                            <td>$tampil[Nama_Perusahaan]</td>
+                            <td>$tampil[Nama_Anggota]</td>
+                            <td>$tampil[Nama_Dosen]</td>
+                            <td>
+                                 <a href='?hapus=$tampil[Id_pdftr]' onClick=\"return confirm('Afa Yakin?');\">Hapus</a>
+                            </td>
                         </tr>";
                         $id++;
                     }
                     ?>
                 </table>
+                <?php
+                    if(isset($_GET['hapus'])){
+                        mysqli_query($koneksi,"delete from tb_pendaftaran_kp where Id_pdftr='$_GET[hapus]'");
+                        echo "<meta http-equiv=refresh content=1;URL=daftar.php>";
+                    }
+                ?>
            </div>
         </div>
      </section>
