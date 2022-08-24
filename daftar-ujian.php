@@ -103,7 +103,6 @@
                             <td>$tampil[Pendaftaran_KP_Id]</td>
                             <td>$tampil[ACC_Ujian_Id]</td>
                         </tr>";
-                        $id++;
                     }
                     ?>
                 </table>
