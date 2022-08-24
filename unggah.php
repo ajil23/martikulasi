@@ -93,6 +93,12 @@
 
           <input type="submit" class="btn btn-primary" name="upload" value="Upload"/>
             </form>
+            
+        <div>
+            <td><?=$no?></td>
+            <td><?php echo $data['nama_file']; ?></td>
+            <td><a href="download.php?filename=<?=$data['nama_file']?>">Download</a></td>    
+        </div>  
     </section>
 
     <script src="script.js"></script>
