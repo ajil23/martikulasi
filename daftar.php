@@ -88,6 +88,7 @@
                         <th scope="col">Perusahaan</th>
                         <th scope="col">Anggota</th>
                         <th scope="col">Dosen</th>
+                        <th scope="col" colspan="1">Aksi</th>
                     </tr>
                     </thead>
                     
@@ -108,11 +109,20 @@
                             <td>$tampil[Nama_Perusahaan]</td>
                             <td>$tampil[Nama_Anggota]</td>
                             <td>$tampil[Nama_Dosen]</td>
+                            <td>
+                                 <a href='?hapus=$tampil[Id_pdftr]' onClick=\"return confirm('Afa Yakin?');\">Hapus</a>
+                            </td>
                         </tr>";
                         $id++;
                     }
                     ?>
                 </table>
+                <?php
+                    if(isset($_GET['hapus'])){
+                        mysqli_query($koneksi,"delete from tb_pendaftaran_kp where Id_pdftr='$_GET[hapus]'");
+                        echo "<meta http-equiv=refresh content=1;URL=daftar.php>";
+                    }
+                ?>
            </div>
         </div>
      </section>
