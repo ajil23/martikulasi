@@ -84,7 +84,8 @@
                         <th scope="col">Perusahaan</th>
                         <th scope="col">Anggota</th>
                         <th scope="col">Dosen</th>
-                        <th scope="col" colspan="2">Aksi</th>
+                        <th scope="col">Surat Izin</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                     </thead>
                     
@@ -106,7 +107,7 @@
                             <td>$tampil[Nama_Anggota]</td>
                             <td>$tampil[Nama_Dosen]</td>
                             <td>
-                                 <a href='#' class='btn btn-warning'>Edit</a>
+                                 <a href='#' class='btn btn-primary'>Unggah</a>
                             </td>
                             <td>
                                  <a href='?hapus=$tampil[Id_pdftr]' class='btn btn-danger' onClick=\"return confirm('Yakin dek?');\">Hapus</a>
