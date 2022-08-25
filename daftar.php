@@ -65,11 +65,6 @@
     </nav>
 
     <section class="dashboard">
-        <div class="top">
-            <i></i>
-            <img src="asset/dosen.jpg" alt="">
-        </div>
-
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
