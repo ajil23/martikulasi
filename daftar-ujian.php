@@ -49,16 +49,11 @@
                 <li><a href="index.php">
                     <i class="uil uil-sign-out-alt"></i>
                     <span class="link-name">Logout</span>
-                </a></li>
-
-                <li class="mode">
-                  
-                </a>
-
-                <div class="mode-toggle">
-                  
-                </div>
-            </li>
+                    </a>
+                 </li>
+                 <li class="mode"> </li>
+                 <div class="mode-toggle"></div>
+                </li>
             </ul>
         </div>
     </nav>
