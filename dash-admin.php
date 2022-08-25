@@ -67,7 +67,7 @@
 
     <section class="dashboard">
         <div class="top">
-            <i class="uil uil-bars sidebar-toggle"></i>
+            <i></i>
             <img src="asset/dosen.jpg" alt="">
         </div>
 
