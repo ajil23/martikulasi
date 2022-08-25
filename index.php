@@ -76,6 +76,11 @@ if (isset($_POST['login'])) {
                         </div>
                     
                         <div class="checkbox-text">
+                            <div class="checkbox-content">
+                              
+                            </div>
+                            
+                            <a href="#" class="text">Lupa Sandi dek?</a>
                         </div>
 
                         <div class="input-field button" >
