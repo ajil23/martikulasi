@@ -80,7 +80,7 @@ if (isset($_POST['login'])) {
                               
                             </div>
                             
-                            <a href="#" class="text">Lupa Sandi dek?</a>
+                            <a href="#" class="text">Lupa Sandi?</a>
                         </div>
 
                         <div class="input-field button" >
