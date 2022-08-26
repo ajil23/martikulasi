@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="dosenstyle.css">
     <link rel="icon" sizes="180x180" href="asset/android-chrome-192x192.png">
     <link rel="icon" sizes="32x32" href="asset/poliwangi 32x32.png">
     <link rel="icon" sizes="16x16" href="asset/poliwangi 16x16.png">
@@ -76,8 +76,8 @@
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="uil uil-file-graph"></i>
-                    <span class="text">Nilai Mahasiswa</span>
+                    <i class="uil uil-user-md"></i>
+                    <span class="text">Dosen</span>
                 </div>
                 
 
@@ -93,20 +93,7 @@
                     </thead>
                     
                     <!--script php -->
-                    <?php
-                    include "koneksi.php";
-                    $ambildata = mysqli_query($koneksi,"select tb_nilai.Id_nilai, tb_nilai.Nilai_Pembimbing_Lapangan,  tb_nilai.Nilai_Pembimbing_KP, tb_nilai.Nilai_Penguji, tb_pendaftaran_ujian_kp.Id_ujian from tb_nilai join tb_pendaftaran_ujian_kp on tb_nilai.Id_ujian = tb_pendaftaran_ujian_kp.Id_ujian");
-                    while ($tampil = mysqli_fetch_array($ambildata)){
-                        echo "
-                        <tr>
-                            <td>$tampil[Id_nilai]</td>
-                            <td>$tampil[Nilai_Pembimbing_Lapangan]</td>
-                            <td>$tampil[Nilai_Pembimbing_KP]</td>
-                            <td>$tampil[Nilai_Penguji]</td>
-                            <td>$tampil[Id_ujian]</td>
-                        </tr>";
-                    }
-                    ?>
+                    
                 </table>
 
         </div>
