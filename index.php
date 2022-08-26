@@ -34,10 +34,22 @@ if (isset($_POST['login'])) {
             
             } else {
                 //pesan error password salah
+                function alertWindow($msg) {       
+                    echo "<script type ='text/JavaScript'>";  
+                     echo "alert('$msg')";  
+                     echo "</script>";   
+                   }    
+                alertWindow("Maaf, sandi yang anda masukkan salah");   
             }
     
         } else {
             //pesan error akun blm terdaftar
+            function alertWindow($msg) {       
+                echo "<script type ='text/JavaScript'>";  
+                 echo "alert('$msg')";  
+                 echo "</script>";   
+                }    
+            alertWindow("Maaf, sepertinya akun anfa belum terdaftar");   
         }  
         
     }
