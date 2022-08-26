@@ -95,7 +95,10 @@
                     <!--script php -->
                     
                 </table>
-
+            </div>
+            <div class="float">
+                    <a href='#' class='btn btn-success'>Tambah data</a>
+            </div>
         </div>
     </section>
 
