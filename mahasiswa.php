@@ -84,11 +84,11 @@
                 <table class="table" border="1">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Pembimbing Lapangan</th>
-                        <th scope="col">Pembimbing KP</th>
-                        <th scope="col">Penguji</th>
-                        <th scope="col">Pengujian KP</th>
+                        <th scope="col">NIM</th>
+                        <th scope="col">Nama Lengkap</th>
+                        <th scope="col">Kelas</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Alamat</th>
                     </tr>
                     </thead>
                     
