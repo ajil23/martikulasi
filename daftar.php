@@ -105,7 +105,7 @@
                                  <a href='#' class='btn btn-success'>Unggah</a>
                             </td>
                             <td>
-                                 <a href='?hapus=$tampil[Id_pdftr]' class='btn btn-danger' onClick=\"return confirm('Yakin dek?');\">Hapus</a>
+                                 <a href='?hapus=$tampil[Id_pdftr]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                             </td>
 
                         </tr>";
