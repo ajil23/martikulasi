@@ -1,33 +1,9 @@
-<?
+<?php
 Class Dosen {
-    private $Id;
-    private $Nama;
-    private $NIK;
+    public $Id;
+    public $Nama;
+    public $NIK;
 
-    private function setdata ($Id,$Nama,$NIK) {
-        $this->Id = $Id;
-        $this->Nama = $Nama;
-        $this->Alamat = $NIK;
-    }
-
-    public function getId () {
-        return $this->Id;
-    }
-
-    public function getNama () {
-        return $this->Nama;
-    }
-
-    public function getNIK () {
-        return $this->NIK;
-    }
-
-    public function isidata($Id,$Nama,$NIK) {
-        $this->setdata($Id,$Nama,$NIK);
-    }
-}
-
-Class OperationsDosen extends Dosen {
     public function FindIdDosen () {
         include "koneksi.php";
         $query = "select Id from tb_dosen order by Id desc limit 1";
@@ -46,8 +22,9 @@ Class OperationsDosen extends Dosen {
     }
 
     public function InputDataDosen() {
+        global $Id,$Nama,$NIK;
         include "koneksi.php";
-        $query = " ";
+        $query = "insert tb_dosen values ($Id,'$Nama',$NIK)";
         $mysql = mysqli_query($koneksi,$query);
     }
 
@@ -60,8 +37,14 @@ Class OperationsDosen extends Dosen {
 
     public function EditDataDosen() {
         include "koneksi.php";
-        $query = " ";
+        $query = "update tb_dosen set Id = $Id, Nama_Dosen = $Nama, NIK = $NIK";
         $mysql = mysqli_query($koneksi,$query);
+    }
+
+    public function IsiDataDosen($Id,$Nama,$NIK) {
+        $this->Id = $Id;
+        $this->Nama = $Nama;
+        $this->NIK = $NIK;
     }
 }
 ?>

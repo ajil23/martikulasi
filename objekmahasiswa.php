@@ -1,50 +1,12 @@
-<?
+<?php
 Class Mahasiswa {
-    private $Id;
-    private $NIM;
-    private $Nama;
-    private $Alamat;
-    private $Kelas;
-    private $Email;
+    public $Id;
+    public $NIM;
+    public $Nama;
+    public $Alamat;
+    public $Kelas;
+    public $Email;
 
-    private function setdata ($Id,$NIM,$Nama,$Alamat,$Kelas,$Email) {
-        $this->Id = $Id;
-        $this->NIM = $NIM;
-        $this->Nama = $Nama;
-        $this->Alamat = $Alamat;
-        $this->Kelas = $Kelas;
-        $this->Email = $Email;
-    }
-
-    public function getId () {
-        return $this->Id;
-    }
-    public function getNIM () {
-        return $this->NIM;
-    }
-
-    public function getNama () {
-        return $this->Nama;
-    }
-
-    public function getAlamat () {
-        return $this->Alamat;
-    }
-
-    public function getKelas () {
-        return $this->Kelas;
-    }
-
-    public function getEmail () {
-        return $this->Email;
-    }
-
-    public function isidata($Id,$NIM,$Nama,$Alamat,$Kelas,$Email) {
-        $this->setdata($Id,$NIM,$Nama,$Alamat,$Kelas,$Email);
-    }
-}
-
-Class OperationsMahasiswa extends Mahasiswa {
     public function FindIdMahasiswa () {
         include "koneksi.php";
         $query = "select Id from tb_mahasiswa order by Id desc limit 1";
@@ -80,8 +42,15 @@ Class OperationsMahasiswa extends Mahasiswa {
         $query = " ";
         $mysql = mysqli_query($koneksi,$query);
     }
+    public function isidatamahasiswa($Id,$NIM,$Nama,$Alamat,$Kelas,$Email) {
+        $this->Id = $Id;
+        $this->NIM =$NIM;
+        $this->Nama = $Nama;
+        $this->Alamat = $Alamat;
+        $this->Kelas = $Kelas;
+        $this->Email = $Email;
+    }
     
 }
 
-$mahasiswa = new OperationsMahasiswa();
 ?>
