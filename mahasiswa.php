@@ -169,17 +169,18 @@ $mahasiswa = new OperationsMahasiswa();
                     <span class="text">Mahasiswa</span>
                 </div>
                 
-
-                <table class="table" border="1">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
+                <table class="table table-bordered table-striped mb-0" border="1" >
                     <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama Lengkap</th>
-                        <th scope="col">Kelas</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">E-mail</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">NIM</th>
+                            <th scope="col">Nama Lengkap</th>
+                            <th scope="col">Kelas</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
                     </thead>
 
                     <!--script php -->
@@ -196,14 +197,18 @@ $mahasiswa = new OperationsMahasiswa();
                         <td>$tampil[Kelas]</td>
                         <td>$tampil[Alamat]</td>
                         <td>$tampil[Email]</td>
+                        <td>
+                                 <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                        </td>
                     </tr>
                     ";
                     $i++;
                     }
                     ?>
                     
-                </table>
-
+                     </table>
+                </div>
+            </div>
         </div>
     </section>
 

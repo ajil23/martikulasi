@@ -297,6 +297,14 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
     margin-left: 10px;
 }
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
 .dash-content .boxes{
     display: flex;
     align-items: center;
