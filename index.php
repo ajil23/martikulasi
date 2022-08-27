@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
                  echo "alert('$msg')";  
                  echo "</script>";   
                 }    
-            alertWindow("Maaf, sepertinya akun anda belum terdaftar");   
+            alertWindow("Maaf, akun anda belum terdaftar");   
         }  
         
     }

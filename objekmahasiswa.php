@@ -45,41 +45,43 @@ Class Mahasiswa {
 }
 
 Class OperationsMahasiswa extends Mahasiswa {
-    public function FindIdMahasiswa () {
-        include "koneksi.php";
-        $query = "select Id from tb_mahasiswa order by Id desc limit 1";
-        $mysql = mysqli_query($koneksi,$query);
-        $Id;
+    // public function FindIdMahasiswa () {
+    //     include "koneksi.php";
+    //     $query = "select Id from tb_mahasiswa order by Id desc limit 1";
+    //     $mysql = mysqli_query($koneksi,$query);
+    //     $Id;
 
-        if  (mysqli_num_rows($mysql) === 1) {
-            while ($input = mysqli_fetch_assoc($mysql)) {
-                $Id = $input["Id"] + 1 ;
-            }
-        } else {
-            $Id = 1;
-        }
+    //     if  (mysqli_num_rows($mysql) === 1) {
+    //         while ($input = mysqli_fetch_assoc($mysql)) {
+    //             $Id = $input["Id"] + 1 ;
+    //         }
+    //     } else {
+    //         $Id = 1;
+    //     }
 
-        return $Id;
-    }
+    //     return $Id;
+    // }
 
-    public function InputDataMahasiswa() {
-        include "koneksi.php";
-        $query = " ";
-        $mysql = mysqli_query($koneksi,$query);
-    }
+    // public function InputDataMahasiswa() {
+    //     include "koneksi.php";
+    //     $query = " ";
+    //     $mysql = mysqli_query($koneksi,$query);
+    // }
 
     public function AmbilDataMahasiswa() {
         include "koneksi.php";
-        $query = " ";
+        $query = "select * from tb_mahasiswa order by NIM asc ";
         $mysql = mysqli_query($koneksi,$query);
         return $mysql;
     }
 
-    public function EditDataMahasiswa() {
-        include "koneksi.php";
-        $query = " ";
-        $mysql = mysqli_query($koneksi,$query);
-    }
+//     public function EditDataMahasiswa() {
+//         include "koneksi.php";
+//         $query = " ";
+//         $mysql = mysqli_query($koneksi,$query);
+//     }
     
 }
+
+$mahasiswa = new OperationsMahasiswa();
 ?>
