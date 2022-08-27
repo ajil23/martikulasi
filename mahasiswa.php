@@ -105,7 +105,7 @@ $mahasiswa = new OperationsMahasiswa();
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Admin</title> 
+    <title>Mahasiswa</title> 
 </head>
 <body>
     <nav>
@@ -133,7 +133,7 @@ $mahasiswa = new OperationsMahasiswa();
                 </a></li>
                 <li><a href="user-plus.php">
                     <i class="uil uil-user-plus"></i>
-                    <span class="link-name">Tambah User</span>
+                    <span class="link-name">User</span>
                 </a></li>
             </ul>
             
