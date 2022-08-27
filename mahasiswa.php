@@ -177,6 +177,7 @@ $mahasiswa = new OperationsMahasiswa();
                         <th scope="col">Kelas</th>
                         <th scope="col">Email</th>
                         <th scope="col">Alamat</th>
+                        <th scope="col">E-mail</th>
                     </tr>
                     </thead>
 
