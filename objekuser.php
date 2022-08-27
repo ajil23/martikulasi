@@ -41,7 +41,7 @@ Class User {
 
 Class OperationsUser extends User {
     public function FindIdUser () {
-        include "koneksi.php";
+        include ("koneksi.php");
         $query = "select Id from tb_user order by Id desc limit 1";
         $mysql = mysqli_query($koneksi,$query);
         $Id;
@@ -58,25 +58,25 @@ Class OperationsUser extends User {
     }
 
     public function InputDataUser() {
-        include "koneksi.php";
+        include ("koneksi.php");
         $query = "insert tb_user values('')";
         $mysql = mysqli_query($koneksi,$query);
     }
 
     public function AmbilDataUser() {
-        include "koneksi.php";
-        $query = "select Username, Password, Role from tb_user left join tb_user_role on Id_Role = Id_User";
+        include ("koneksi.php");
+        $query = "select * from tb_user left join tb_user_role on Id_Role = Id_User 
+        left join tb_mahasiswa on tb_mahasiswa.User_Id = tb_user.Id order by Username asc";
         $mysql = mysqli_query($koneksi,$query);
         return $mysql;
     }
 
     public function EditDataUser() {
-        include "koneksi.php";
+        include ("koneksi.php");
         $query = " ";
         $mysql = mysqli_query($koneksi,$query);
     }
 
 }
 
-$user = new OperationsUser();
 ?>

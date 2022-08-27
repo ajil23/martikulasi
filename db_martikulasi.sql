@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2022 at 04:29 AM
+-- Generation Time: Aug 27, 2022 at 03:28 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -106,22 +106,22 @@ CREATE TABLE `tb_dosen` (
 -- Dumping data for table `tb_dosen`
 --
 
-INSERT INTO `tb_dosen` (`Id`, `Nama_Dosen`, `NIK`, `User_Id`) VALUES
-(197506, 'Endi Sailul Haq, S.T., M.Kom.', '197506252021211003', 3),
-(197601, 'Mohamad Dimyati Ayatullah, S.T., M.Kom.', '197601222021211001', 3),
-(197806, 'Muh. Fuad Al Haris, S.T., M.T.', '197806132014041001', 3),
-(198010, 'Dedy Hidayat Kusuma, S.T., M.Cs.', '198010222015041001', 3),
-(198301, 'Moh. Nur Shodiq, S.T., M.T.', '198301192021211006', 3),
-(198310, 'Eka Mistiko Rini, S.Kom, M.Kom.', '198310202014042001', 3),
-(198311, 'Devit Suwardiyanto,S.Si., M.T.', '198311052015041001', 3),
-(198403, 'Dianni Yusuf, S.Kom., M.Kom.', '198403052021212004', 3),
-(198404, 'Vivien Arief Wardhany, S.T., M.T.', '198404032019032012', 3),
-(199004, 'Junaedi Adi Prasetyo, S.ST., M.Sc.', '199004192018031001', 3),
-(199009, 'Sepyan Purnama Kristanto, S.Kom., M.Kom.', '199009052019031024', 3),
-(199010, 'Alfin Hidayat, S.T., M.T.', '199010052014041002', 3),
-(199104, 'Alif Akbar Fitrawan, S.Pd., M.Kom.', '199104202018031002', 3),
-(199203, 'Lutfi Hakim, S.Pd., M.T.', '199203302019031012', 3),
-(199209, 'Galih Hendra Wibowo, S.Tr.Kom., M.T.', '199209052022031004', 3);
+INSERT INTO `tb_dosen` (`Id`, `Nama_Dosen`, `NIK`) VALUES
+(197506, 'Endi Sailul Haq, S.T., M.Kom.', '197506252021211003'),
+(197601, 'Mohamad Dimyati Ayatullah, S.T., M.Kom.', '197601222021211001'),
+(197806, 'Muh. Fuad Al Haris, S.T., M.T.', '197806132014041001'),
+(198010, 'Dedy Hidayat Kusuma, S.T., M.Cs.', '198010222015041001'),
+(198301, 'Moh. Nur Shodiq, S.T., M.T.', '198301192021211006'),
+(198310, 'Eka Mistiko Rini, S.Kom, M.Kom.', '198310202014042001'),
+(198311, 'Devit Suwardiyanto,S.Si., M.T.', '198311052015041001'),
+(198403, 'Dianni Yusuf, S.Kom., M.Kom.', '198403052021212004'),
+(198404, 'Vivien Arief Wardhany, S.T., M.T.', '198404032019032012'),
+(199004, 'Junaedi Adi Prasetyo, S.ST., M.Sc.', '199004192018031001'),
+(199009, 'Sepyan Purnama Kristanto, S.Kom., M.Kom.', '199009052019031024'),
+(199010, 'Alfin Hidayat, S.T., M.T.', '199010052014041002'),
+(199104, 'Alif Akbar Fitrawan, S.Pd., M.Kom.', '199104202018031002'),
+(199203, 'Lutfi Hakim, S.Pd., M.T.', '199203302019031012'),
+(199209, 'Galih Hendra Wibowo, S.Tr.Kom., M.T.', '199209052022031004');
 
 -- --------------------------------------------------------
 
@@ -164,37 +164,37 @@ CREATE TABLE `tb_mahasiswa` (
 -- Dumping data for table `tb_mahasiswa`
 --
 
-INSERT INTO `tb_mahasiswa` (`Id`, `Nama_Mahasiswa`, `NIM`, `Kelas`, `Email`, `Alamat`, `User_Id`, `Anggota_Kelompok_Id`) VALUES
-(1095, 'Aisyah Almas Nur Salsabila', '362155401095', 'D', 'salsabila@gmail.com', 'Kec. Kalipuro', 4, NULL),
-(1096, 'Nada Celia Sinka Audy Ines', '362155401096', 'D', 'nadacelia@gmail.com', 'Kembiritan', 4, NULL),
-(1097, 'Fauziah Putri Ramadhani', '362155401097', 'D', 'putriramadhani@gmail.com', 'Kec. Glenmore', 4, NULL),
-(1098, 'Nanda Ayu Putri Ashari', '362155401098', 'D', 'putriashari@gmail.com', 'Kec. Singojuruh', 4, NULL),
-(1099, 'Luluk Triyani', '362155401099', 'D', 'luluktriyani@gmail.com', 'Kec. Giri', 4, NULL),
-(1101, 'Alvin Ikhsan Nur Wahid', '362155401101', 'D', 'alvinikhsan@gmail.com', 'Kec. Srono', 4, NULL),
-(1102, 'Jehan Khairul Anwar', '362155401102', 'D', 'jehananwar@gmail.com', 'Kec. Muncar', 4, NULL),
-(1103, 'Andini Diska Anggraini', '362155401103', 'D', 'andinidiska@gmail.com', 'Kec. Bangorejo', 4, NULL),
-(1104, 'Muhammad Nanang Nafi\'a', '362155401104', 'D', 'nanangnafia@gmial.com', 'Kec. Srono', 4, NULL),
-(1105, 'Putri Nur Sakinah', '362155401105', 'D', 'putrisakinah@gmail.com', 'Kec. Giri', 4, NULL),
-(1106, 'Eliya Fitri Nur Azizah', '362155401106', 'D', 'eliyafitri@gmail.com', 'Kec. Pesanggaran', 4, NULL),
-(1107, 'Azril Praya Prasetyo', '362155401107', 'D', 'azrilpraya@gmail.com', 'Lembar', 4, NULL),
-(1108, 'Rizal Andriansyah', '362155401108', 'D', 'rizalandriansyah@gmail.com', 'Wonosobo', 4, NULL),
-(1109, 'Juniardanu Widi Murdianto', '362155401109', 'D', 'juniardanu@gmail.com', 'Kec. Rambipuji', 4, NULL),
-(1110, 'Zeiniyatul Fitriyah', '362155401110', 'D', 'zeinifitriyah@gmail.com', 'Labanasem', 4, NULL),
-(1111, 'Putra Questy Ramadhani', '362155401111', 'D', 'putraquesty2gmail.com', 'Kec. Licin', 4, NULL),
-(1112, 'Ahmad Syafi\' Azka Azkiya', '362155401112', 'D', 'azkaazkiya@gmail.com', 'Kec. Pesanggaran', 4, NULL),
-(1113, 'Risma Rizki Amalia', '362155401113', 'D', 'rismarizki@gmail.com', 'Kec. Banyuwangi', 4, NULL),
-(1114, 'Erna Ainul Khasanah', '362155401114', 'D', 'ernakhasanah@gmail.com', 'Kec. Bangorejo', 4, NULL),
-(1115, 'Mohammad Zavir Zakaria', '362155401115', 'D', 'zavirzakaria@gmail.com', 'Kec. Banyuwangi', 4, NULL),
-(1116, 'Nur Lailatul Hidayah', '362155401116', 'D', 'lailatulhidayah@gmail.com', 'Kec. Purwoharjo', 4, NULL),
-(1117, 'Xavier Is\'ad Ariel', '362155401117', 'D', 'arilex@gmail.com', 'Kec. Arut Selatan', 4, NULL),
-(1118, 'Zayidan Muttaqin', '362155401118', 'D', 'zayidanmutaqqin@gmail.com', 'Kec. Tegaldlimo', 4, NULL),
-(1119, 'M. Sofi Ulinuha Adian', '362155401119', 'D', 'diankrl@gmail.com', 'Kec. Srono', 4, NULL),
-(1120, 'Linka Fitri Handayani', '362155401120', 'D', 'linkafitri@gmail.com', 'Kec. Srono', 4, NULL),
-(1121, 'Egi Brenka Ginting', '362155401121', 'D', 'egibrenka@gmail.com', 'STM Hilir', 4, NULL),
-(1122, 'Fitri Sukma Kinasih', '362155401122', 'D', 'fitrisukma2gmail.com', 'Songgon', 4, NULL),
-(1123, 'Indana Zulfa', '362155401123', 'D', 'indanazulfa@gmail.com', 'Kec. Banyuwangi', 4, NULL),
-(1124, 'Moch Yusril Irsya Nur Rohim', '362155401124', 'D', 'yusrilirsya@gmail.com', 'Gitik', 4, NULL),
-(1125, 'Aura Presty Bintari', '362155401125', 'D', 'auraprestybintari@gmail.com', 'Kec. Sempu', 4, NULL);
+INSERT INTO `tb_mahasiswa` (`Id`, `Nama_Mahasiswa`, `NIM`, `Kelas`, `Email`, `Alamat`, `Anggota_Kelompok_Id`) VALUES
+(1095, 'Aisyah Almas Nur Salsabila', '362155401095', '1D', 'salsabila@gmail.com', 'Kec. Kalipuro', NULL),
+(1096, 'Nada Celia Sinka Audy Ines', '362155401096', '1D', 'nadacelia@gmail.com', 'Kembiritan', NULL),
+(1097, 'Fauziah Putri Ramadhani', '362155401097', '1D', 'putriramadhani@gmail.com', 'Kec. Glenmore', NULL),
+(1098, 'Nanda Ayu Putri Ashari', '362155401098', '1D', 'putriashari@gmail.com', 'Kec. Singojuruh', NULL),
+(1099, 'Luluk Triyani', '362155401099', '1D', 'luluktriyani@gmail.com', 'Kec. Giri', NULL),
+(1101, 'Alvin Ikhsan Nur Wahid', '362155401101', '1D', 'alvinikhsan@gmail.com', 'Kec. Srono', NULL),
+(1102, 'Jehan Khairul Anwar', '362155401102', '1D', 'jehananwar@gmail.com', 'Kec. Muncar', NULL),
+(1103, 'Andini Diska Anggraini', '362155401103', '1D', 'andinidiska@gmail.com', 'Kec. Bangorejo', NULL),
+(1104, 'Muhammad Nanang Nafi\'a', '362155401104', '1D', 'nanangnafia@gmial.com', 'Kec. Srono', NULL),
+(1105, 'Putri Nur Sakinah', '362155401105', '1D', 'putrisakinah@gmail.com', 'Kec. Giri', NULL),
+(1106, 'Eliya Fitri Nur Azizah', '362155401106', '1D', 'eliyafitri@gmail.com', 'Kec. Pesanggaran', NULL),
+(1107, 'Azril Praya Prasetyo', '362155401107', '1D', 'azrilpraya@gmail.com', 'Lembar', NULL),
+(1108, 'Rizal Andriansyah', '362155401108', '1D', 'rizalandriansyah@gmail.com', 'Wonosobo', NULL),
+(1109, 'Juniardanu Widi Murdianto', '362155401109', '1D', 'juniardanu@gmail.com', 'Kec. Rambipuji', NULL),
+(1110, 'Zeiniyatul Fitriyah', '362155401110', '1D', 'zeinifitriyah@gmail.com', 'Labanasem', NULL),
+(1111, 'Putra Questy Ramadhani', '362155401111', '1D', 'putraquesty2gmail.com', 'Kec. Licin', NULL),
+(1112, 'Ahmad Syafi\' Azka Azkiya', '362155401112', '1D', 'azkaazkiya@gmail.com', 'Kec. Pesanggaran', NULL),
+(1113, 'Risma Rizki Amalia', '362155401113', '1D', 'rismarizki@gmail.com', 'Kec. Banyuwangi', NULL),
+(1114, 'Erna Ainul Khasanah', '362155401114', '1D', 'ernakhasanah@gmail.com', 'Kec. Bangorejo', NULL),
+(1115, 'Mohammad Zavir Zakaria', '362155401115', '1D', 'zavirzakaria@gmail.com', 'Kec. Banyuwangi', NULL),
+(1116, 'Nur Lailatul Hidayah', '362155401116', '1D', 'lailatulhidayah@gmail.com', 'Kec. Purwoharjo', NULL),
+(1117, 'Xavier Is\'ad Ariel', '362155401117', '1D', 'arilex@gmail.com', 'Kec. Arut Selatan', NULL),
+(1118, 'Zayidan Muttaqin', '362155401118', '1D', 'zayidanmutaqqin@gmail.com', 'Kec. Tegaldlimo', NULL),
+(1119, 'M. Sofi Ulinuha Adian', '362155401119', '1D', 'diankrl@gmail.com', 'Kec. Srono', NULL),
+(1120, 'Linka Fitri Handayani', '362155401120', '1D', 'linkafitri@gmail.com', 'Kec. Srono', NULL),
+(1121, 'Egi Brenka Ginting', '362155401121', '1D', 'egibrenka@gmail.com', 'STM Hilir', NULL),
+(1122, 'Fitri Sukma Kinasih', '362155401122', '1D', 'fitrisukma2gmail.com', 'Songgon', NULL),
+(1123, 'Indana Zulfa', '362155401123', '1D', 'indanazulfa@gmail.com', 'Kec. Banyuwangi', NULL),
+(1124, 'Moch Yusril Irsya Nur Rohim', '362155401124', '1D', 'yusrilirsya@gmail.com', 'Gitik', NULL),
+(1125, 'Aura Presty Bintari', '362155401125', '1D', 'auraprestybintari@gmail.com', 'Kec. Sempu', NULL);
 
 -- --------------------------------------------------------
 

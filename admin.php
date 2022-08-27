@@ -1,3 +1,7 @@
+<?php
+include ("objeknilai.php");
+$nilai = new OperationsNilai();
+?>
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
@@ -87,26 +91,31 @@
                         <th scope="col">No</th>
                         <th scope="col">Nama</th>
                         <th scope="col">NIM</th>
-                        <th scope="col">Nilai Pembimbing Lapangan</th>
-                        <th scope="col">Nilai Pembimbing KP</th>
-                        <th scope="col">Nilai Penguji</th>
-                        <th scope="col">Nilai Pengujian KP</th>
+                        <th scope="col">Nilai Lapangan</th>
+                        <th scope="col">Nilai Kerja Praktek</th>
+                        <th scope="col">Nilai Ujian</th>
+                        <th scope="col">Nilai Rata-Rata</th>
                     </tr>
                     </thead>
                     
                     <!--script php -->
                     <?php
-                    include "koneksi.php";
-                    $ambildata = mysqli_query($koneksi,"select tb_nilai.Id_nilai, tb_nilai.Nilai_Pembimbing_Lapangan,  tb_nilai.Nilai_Pembimbing_KP, tb_nilai.Nilai_Penguji, tb_pendaftaran_ujian_kp.Id_ujian from tb_nilai join tb_pendaftaran_ujian_kp on tb_nilai.Id_ujian = tb_pendaftaran_ujian_kp.Id_ujian");
-                    while ($tampil = mysqli_fetch_array($ambildata)){
+                    $mysql = $nilai->AmbilDataNilai();
+                    $i = 1;
+
+                    while ($tampil = mysqli_fetch_array($mysql)){
+                        $rata2 = $tampil["Nilai_Pembimbing_Lapangan"] + $tampil["Nilai_Pembimbing_KP"] + $tampil["Nilai_Penguji"] / 3;
                         echo "
                         <tr>
-                            <td>$tampil[Id_nilai]</td>
+                            <td>$i</td>
+                            <td>$tampil[NM]</td>
+                            <td>$tampil[Nama_Mahasiswa]</td>
                             <td>$tampil[Nilai_Pembimbing_Lapangan]</td>
                             <td>$tampil[Nilai_Pembimbing_KP]</td>
                             <td>$tampil[Nilai_Penguji]</td>
-                            <td>$tampil[Id_ujian]</td>
+                            <td>$rata2
                         </tr>";
+                        $i++;
                     }
                     ?>
                 </table>
