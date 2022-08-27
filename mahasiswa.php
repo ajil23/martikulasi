@@ -45,28 +45,28 @@ Class Mahasiswa {
 }
 
 Class OperationsMahasiswa extends Mahasiswa {
-    // public function FindIdMahasiswa () {
-    //     include "koneksi.php";
-    //     $query = "select Id from tb_mahasiswa order by Id desc limit 1";
-    //     $mysql = mysqli_query($koneksi,$query);
-    //     $Id;
+    public function FindIdMahasiswa () {
+        include "koneksi.php";
+        $query = "select Id from tb_mahasiswa order by Id desc limit 1";
+        $mysql = mysqli_query($koneksi,$query);
+        $Id;
 
-    //     if  (mysqli_num_rows($mysql) === 1) {
-    //         while ($input = mysqli_fetch_assoc($mysql)) {
-    //             $Id = $input["Id"] + 1 ;
-    //         }
-    //     } else {
-    //         $Id = 1;
-    //     }
+        if  (mysqli_num_rows($mysql) === 1) {
+            while ($input = mysqli_fetch_assoc($mysql)) {
+                $Id = $input["Id"] + 1 ;
+            }
+        } else {
+            $Id = 1;
+        }
 
-    //     return $Id;
-    // }
+        return $Id;
+    }
 
-    // public function InputDataMahasiswa() {
-    //     include "koneksi.php";
-    //     $query = " ";
-    //     $mysql = mysqli_query($koneksi,$query);
-    // }
+    public function InputDataMahasiswa() {
+        include "koneksi.php";
+        $query = " ";
+        $mysql = mysqli_query($koneksi,$query);
+    }
 
     public function AmbilDataMahasiswa() {
         include "koneksi.php";
@@ -75,17 +75,18 @@ Class OperationsMahasiswa extends Mahasiswa {
         return $mysql;
     }
 
-//     public function EditDataMahasiswa() {
-//         include "koneksi.php";
-//         $query = " ";
-//         $mysql = mysqli_query($koneksi,$query);
-//     }
+    public function EditDataMahasiswa() {
+        include "koneksi.php";
+        $query = " ";
+        $mysql = mysqli_query($koneksi,$query);
+    }
     
 }
 
 $mahasiswa = new OperationsMahasiswa();
 
 ?>
+
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
@@ -186,7 +187,7 @@ $mahasiswa = new OperationsMahasiswa();
                     $mysql = $mahasiswa->AmbilDataMahasiswa();
                     $i = 1;
 
-                    while($tampil = mysqli_fetch_assoc($mysql))
+                    while($tampil = mysqli_fetch_assoc($mysql)) {
                     echo "
                     <tr>
                         <td>$i</td>
@@ -194,10 +195,11 @@ $mahasiswa = new OperationsMahasiswa();
                         <td>$tampil[Nama_Mahasiswa]</td>
                         <td>$tampil[Kelas]</td>
                         <td>$tampil[Alamat]</td>
-                        <td>$tampil{Email]</td>
+                        <td>$tampil[Email]</td>
                     </tr>
                     ";
                     $i++;
+                    }
                     ?>
                     
                 </table>
