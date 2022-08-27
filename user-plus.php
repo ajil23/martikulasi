@@ -215,8 +215,9 @@ $user = new OperationsUser();
                 </table>
             </div>
             <div>
-                <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
+                <a href='tambah-user.php' class='btn btn-success'>Tambah data</a>
             </div>
+
         </div>
         </div>
     </section>

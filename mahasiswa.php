@@ -169,7 +169,7 @@ $mahasiswa = new OperationsMahasiswa();
                     <span class="text">Mahasiswa</span>
                 </div>
                 <div>
-                    <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
+                    <a href='mahasiswa-plus.php' class='btn btn-success'>Tambah data</a>
                 </div>
                 <br>
                 <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">

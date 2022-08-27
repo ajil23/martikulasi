@@ -164,7 +164,7 @@ $Dosen = new OperationsDosen();
                 </div>
 
                 <div>
-                    <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
+                    <a href='dosen-plus.php' class='btn btn-success'>Tambah data</a>
                 </div>
                 <br>
                 <table class="table table-bordered table-striped mb-0" border="1">
