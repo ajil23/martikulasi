@@ -163,7 +163,7 @@ $Dosen = new OperationsDosen();
                     <span class="text">Dosen</span>
                 </div>
 
-                <div class="addin">
+                <div>
                     <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
                 </div>
                 <br>

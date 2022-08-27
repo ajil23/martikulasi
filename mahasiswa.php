@@ -168,7 +168,10 @@ $mahasiswa = new OperationsMahasiswa();
                     <i class="uil uil-book-reader"></i>
                     <span class="text">Mahasiswa</span>
                 </div>
-                
+                <div>
+                    <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
+                </div>
+                <br>
                 <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
                 <table class="table table-bordered table-striped mb-0" border="1" >
                     <thead class="thead-dark">
