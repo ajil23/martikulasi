@@ -92,7 +92,7 @@
                             <td>$tampil[Laporan_KP]</td>
                             <td>$tampil[Jadwal_Ujian]</td>
                             <td>
-                            <a href='#' class='btn btn-warning'>Ubah</a>
+                            <a href='ubah.php' class='btn btn-warning'>Ubah</a>
                             </td>
                             <td>
                             <a href='#' class='btn btn-danger'>Hapus</a>
