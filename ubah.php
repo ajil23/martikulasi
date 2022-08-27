@@ -43,7 +43,7 @@
                         <i class="uil uil-file-edit-alt"></i>
                         <span class="link-name">Daftar</span>
                     </a></li>
-                <li><a href="#">
+                <li><a href="daftar-ujian.php">
                         <i class="uil uil-clipboard-notes"></i>
                         <span class="link-name">Daftar Ujian</span>
                     </a></li>
