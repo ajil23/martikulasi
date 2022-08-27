@@ -403,6 +403,9 @@ nav.close ~ .dashboard .top{
     .activity .activity-data{
         overflow-X: scroll;
     }
+    .addin{
+        margin-left: 400px;
+    }
 }
 
 @media (max-width: 780px) {

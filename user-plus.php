@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // Class User {
 //     private $Id;
 //     private $Username;
@@ -77,6 +78,98 @@
 //     }
 
 // }
+=======
+class User
+{
+    private $Id;
+    private $Username;
+    private $Password;
+    private $Role;
+    private $NI;
+
+    private function setdata($Id, $Username, $Password, $Role, $NI)
+    {
+        $this->Id = $Id;
+        $this->Username = $Username;
+        $this->Password = $Password;
+        $this->Role = $Role;
+        $this->NI = $NI;
+    }
+
+    public function getId()
+    {
+        return $this->Id;
+    }
+
+    public function getUsername()
+    {
+        return $this->Username;
+    }
+
+    public function getPassword()
+    {
+        return $this->Password;
+    }
+
+    public function getRole()
+    {
+        return $this->Role;
+    }
+
+    public function getNI()
+    {
+        return $this->NI;
+    }
+
+    public function isidata($Id, $Username, $Password, $Role, $NI)
+    {
+        $this->setdata($Id, $Username, $Password, $Role, $NI);
+    }
+}
+
+class OperationsUser extends User
+{
+    public function FindIdUser()
+    {
+        include "koneksi.php";
+        $query = "select Id from tb_user order by Id desc limit 1";
+        $mysql = mysqli_query($koneksi, $query);
+        $Id;
+
+        if (mysqli_num_rows($mysql) === 1) {
+            while ($input = mysqli_fetch_assoc($mysql)) {
+                $Id = $input["Id"] + 1;
+            }
+        } else {
+            $Id = 1;
+        }
+
+        return $Id;
+    }
+
+    public function InputDataUser()
+    {
+        include "koneksi.php";
+        $query = "insert tb_user values('')";
+        $mysql = mysqli_query($koneksi, $query);
+    }
+
+    public function AmbilDataUser()
+    {
+        include "koneksi.php";
+        $query = "select Username, Password, Role from tb_user left join tb_user_role on Id_Role = Id_User";
+        $mysql = mysqli_query($koneksi, $query);
+        return $mysql;
+    }
+
+    public function EditDataUser()
+    {
+        include "koneksi.php";
+        $query = " ";
+        $mysql = mysqli_query($koneksi, $query);
+    }
+}
+>>>>>>> a638a82822055ef3cba88da3def36e3254e33173
 
 // $user = new OperationsUser();
 include ("objekuser.php");
@@ -175,9 +268,13 @@ $user = new OperationsUser();
                             <th scope="col">No</th>
                             <th scope="col">Username</th>
                             <th scope="col">Role</th>
+<<<<<<< HEAD
                             <th scope="col">Nama</th>
                             <th scope="col">Kelas</th>
                             <th scope="col">E-mail</th>
+=======
+                            <th scope="col">Pemilik</th>
+>>>>>>> a638a82822055ef3cba88da3def36e3254e33173
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -187,53 +284,34 @@ $user = new OperationsUser();
                     $mysql = $user->AmbilDataUser();
                     $i = 1;
 
-                    while($tampil = mysqli_fetch_assoc($mysql)) {
-                    echo "
+                    while ($tampil = mysqli_fetch_assoc($mysql)) {
+                        echo "
                     <tr>
                         <td>$i</td>
                         <td>$tampil[Username]</td>
                         <td>$tampil[Role]</td>
+<<<<<<< HEAD
                         <td>$tampil[Nama_Mahasiswa]</td>
                         <td>$tampil[Kelas]</td>
                         <td>$tampil[Email]</td>
+=======
+                        <td>
+                                 <a href='?hapus=$tampil[Username]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                        </td>
+
+>>>>>>> a638a82822055ef3cba88da3def36e3254e33173
                     </tr>
                     ";
-                    $i++;
+                        $i++;
                     }
                     ?>
 
                 </table>
             </div>
-            <div class="float">
-                <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
+            <div>
+                <a href='tambah-user.php' class='btn btn-success'>Tambah data</a>
             </div>
-            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Masukkan Data</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput2">Judul Laporan Kerja Praktek</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Judul">
-                                </div>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput2">Judul Laporan Kerja Praktek</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Judul">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         </div>
     </section>
