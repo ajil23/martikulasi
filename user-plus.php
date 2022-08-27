@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Admin</title> 
+    <title>User</title> 
 </head>
 <body>
     <nav>
@@ -46,7 +46,7 @@
                 </a></li>
                 <li><a href="user-plus.php">
                     <i class="uil uil-user-plus"></i>
-                    <span class="link-name">Tambah User</span>
+                    <span class="link-name">User</span>
                 </a></li>
             </ul>
             
@@ -78,18 +78,16 @@
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-user-plus"></i>
-                    <span class="text">Tambah User</span>
+                    <span class="text">User</span>
                 </div>
                 
 
                 <table class="table" border="1">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Pembimbing Lapangan</th>
-                        <th scope="col">Pembimbing KP</th>
-                        <th scope="col">Penguji</th>
-                        <th scope="col">Pengujian KP</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Pemilik</th>
                     </tr>
                     </thead>
                     

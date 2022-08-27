@@ -72,9 +72,9 @@
                 <table class="table" border="1">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Pendaftar</th>
-                            <th scope="col">Laporan</th>
+                            <th scope="col">No</th>
+                            <th scope="col">NIM</th>
+                            <th scope="col">Nama</th>
                             <th scope="col">Jadwal</th>
                             <th scope="col" colspan="2">Aksi</th>
                         </tr>

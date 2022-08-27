@@ -45,7 +45,7 @@
                 </a></li>
                 <li><a href="user-plus.php">
                     <i class="uil uil-user-plus"></i>
-                    <span class="link-name">Tambah User</span>
+                    <span class="link-name">User</span>
                 </a></li>
             </ul>
             
@@ -84,11 +84,13 @@
                 <table class="table" border="1">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Pembimbing Lapangan</th>
-                        <th scope="col">Pembimbing KP</th>
-                        <th scope="col">Penguji</th>
-                        <th scope="col">Pengujian KP</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">NIM</th>
+                        <th scope="col">Nilai Pembimbing Lapangan</th>
+                        <th scope="col">Nilai Pembimbing KP</th>
+                        <th scope="col">Nilai Penguji</th>
+                        <th scope="col">Nilai Pengujian KP</th>
                     </tr>
                     </thead>
                     
