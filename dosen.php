@@ -84,11 +84,9 @@
                 <table class="table" border="1">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Pembimbing Lapangan</th>
-                        <th scope="col">Pembimbing KP</th>
-                        <th scope="col">Penguji</th>
-                        <th scope="col">Pengujian KP</th>
+                        <th scope="col">No</th>
+                        <th scope="col">NIK</th>
+                        <th scope="col">Nama Lengkap</th>
                     </tr>
                     </thead>
                     
