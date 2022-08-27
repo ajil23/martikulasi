@@ -1,4 +1,4 @@
-<?
+<?php
 Class User {
     private $Id;
     private $Username;
@@ -65,7 +65,7 @@ Class OperationsUser extends User {
 
     public function AmbilDataUser() {
         include "koneksi.php";
-        $query = "";
+        $query = "select Username, Password, Role from tb_user left join tb_user_role on Id_Role = Id_User";
         $mysql = mysqli_query($koneksi,$query);
         return $mysql;
     }
@@ -77,4 +77,6 @@ Class OperationsUser extends User {
     }
 
 }
+
+$user = new OperationsUser();
 ?>
