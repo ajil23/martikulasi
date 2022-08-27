@@ -80,5 +80,6 @@ Class OperationsMahasiswa extends Mahasiswa {
         $query = " ";
         $mysql = mysqli_query($koneksi,$query);
     }
+    
 }
 ?>

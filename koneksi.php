@@ -7,5 +7,5 @@ if(!$koneksi) {
               echo "alert('$msg')";  
               echo "</script>";   
     }    
-    alertWindow("Database tidak ditemukan");   
+    alertWindow("Tidak dapat terhubung ke database");   
 }
