@@ -303,6 +303,15 @@ nav.close ~ .dashboard .top{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
 .dash-content .boxes .box{
     display: flex;
     flex-direction: column;

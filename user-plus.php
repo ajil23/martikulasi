@@ -87,9 +87,8 @@ $user = new User();
                     <i class="uil uil-user-plus"></i>
                     <span class="text">User</span>
                 </div>
-
-
-                <table class="table" border="1">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
+                <table class="table table-bordered table-striped mb-0" border="1">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">No</th>
@@ -123,8 +122,9 @@ $user = new User();
                         $i++;
                     }
                     ?>
-
                 </table>
+                </div>
+                
             </div>
             <div>
                 <a href='tambah-user.php' class='btn btn-success'>Tambah data</a>
