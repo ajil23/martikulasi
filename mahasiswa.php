@@ -115,7 +115,7 @@ $mahasiswa = new Mahasiswa();
                         <td>$tampil[Alamat]</td>
                         <td>$tampil[Email]</td>
                         <td>
-                        <a href='*' class='btn btn-warning' onClick=\"return confirm('Apakah anda yakin?');\">Edit</a>
+                        <a href='edit-mahasiswa.php' class='btn btn-warning'>Edit</a>
                         </td>
                         <td>
                         <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>

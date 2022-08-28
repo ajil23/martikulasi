@@ -1,6 +1,36 @@
 <?php
-include("objekdosen.php");
+include ("objekdosen.php");
 $Dosen = new Dosen();
+
+if (isset($_POST['submit'])) {
+    $Nama = $_POST['NamaDosen'];
+    $NIK = $_POST['NIKDosen'];
+
+    if ($Nama != null && $NIK != null) {
+
+        $mysql = $Dosen->AmbilDataDosen();
+        $boolean = false;
+
+        while($ambil = mysqli_fetch_assoc($mysql)) {
+            if ($Nama == $ambil["Nama_Dosen"] && $NIK == $ambil["NIK"]) {
+                $boolean = true;
+                // pesen salah data sudah terdaftar di dalam database
+
+                header("location:  http://localhost/martikulasi/dosen-plus.php");
+            }
+        }
+
+        if ($boolean == false) {
+            $Id = $Dosen->FindIdDosen();
+            $Dosen->IsiDataDosen($Id,$Nama,$NIK);
+            $Dosen->InputDataDosen();
+            header("location:  http://localhost/martikulasi/dosen.php");
+        } 
+
+    } else{
+    // pesan salah data tidak boleh kosong 
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +43,7 @@ $Dosen = new Dosen();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="dosenstyle.css">
+    <link rel="stylesheet" href="mahasiswa-style.css">
     <link rel="icon" sizes="180x180" href="asset/android-chrome-192x192.png">
     <link rel="icon" sizes="32x32" href="asset/poliwangi 32x32.png">
     <link rel="icon" sizes="16x16" href="asset/poliwangi 16x16.png">
@@ -23,7 +53,7 @@ $Dosen = new Dosen();
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Dosen</title>
+    <title>Mahasiswa</title>
 </head>
 
 <body>
@@ -77,53 +107,28 @@ $Dosen = new Dosen();
     <section class="dashboard">
         <div class="top">
             <i></i>
+            <img src="asset/admin.jpg" alt="">
         </div>
 
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-user-md"></i>
-                    <span class="text">Dosen</span>
+                    <span class="text">Ubah Data Dosen</span>
                 </div>
-                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
-                    <table class="table table-bordered table-striped mb-0" border="1">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">NIK</th>
-                                <th scope="col">Nama Lengkap</th>
-                                <th scope="col" colspan="2">Aksi</th>
-                            </tr>
-                        </thead>
-
-                        <!--script php -->
-                        <?php
-                        $mysql = $Dosen->AmbilDataDosen();
-                        $i = 1;
-
-                        while ($tampil = mysqli_fetch_assoc($mysql)) {
-                            echo "
-                        <tr>
-                        <td>$i</td>
-                        <td>$tampil[NIK]</td>
-                        <td>$tampil[Nama_Dosen]</td>
-                        <td>
-                        <a href='edit-dosen.php' class='btn btn-warning'>Edit</a>
-                        </td>
-                        <td>
-                            <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
-                        </td>
-                        </tr>
-                        ";
-                            $i++;
-                        }
-                        ?>
-                    </table>
-                </div>
-                <br>
-            </div>
-            <div>
-                <a href='dosen-plus.php' class='btn btn-success'>Tambah data</a>
+                <form action="" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="NamaDosen">Nama</label>
+                            <input type="text" name="NamaDosen" class="form-control" id="NamaDosen" placeholder="Nama Dosen">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="NIKDosen">NIK</label>
+                            <input type="text" name="NIKDosen" class="form-control" id="NIKDosen" placeholder="NIK Dosen">
+                        </div>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </section>
