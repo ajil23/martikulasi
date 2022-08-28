@@ -303,6 +303,7 @@ nav.close ~ .dashboard .top{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .dash-content .boxes .box{
     display: flex;
     flex-direction: column;

@@ -297,6 +297,7 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
     margin-left: 10px;
 }
+
 .dash-content .boxes{
     display: flex;
     align-items: center;
