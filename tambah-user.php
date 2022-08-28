@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                     }
                 }
 
-                if ($boolean) {
+                if ($boolean == true) {
                     $Id = $User->FindIdUser();
                     $IdRole = $User->IsiIdRole($Role);
 
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
                 $mysql = $User->AmbilDataUserPegawai();
 
                 while($ambil = mysqli_fetch_assoc($mysql)) {
-                    if ($Username == $ambil["Username"] && $Password == $ambil["Password"]) {
+                    if ($Username === $ambil["Username"] && $Password === $ambil["Password"]) {
                         // pesen salah akun telah terdaftar
 
                         header("location : http://localhost/martikulasi/dosen_plus.php");
@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
                 $boolean = false;
                 $mysql = $Dosen->AmbilDataDosen();
                 while($ambil = mysqli_fetch_assoc($mysql)) {
-                    if ($Nama == $ambil["Nama_Dosen"] && $Number == $ambil["NIK"]) {
+                    if ($Nama === $ambil["Nama_Dosen"] && $Number === $ambil["NIK"]) {
                         $boolean = true;
                         break;
                     }
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                 $mysql = $User->AmbilDataUserPegawai();
 
                 while($ambil = mysqli_fetch_assoc($mysql)) {
-                    if ($Username == $ambil["Username"] && $Password == $ambil["Password"]) {
+                    if ($Username === $ambil["Username"] && $Password === $ambil["Password"]) {
                         // pesen salah akun telah terdaftar
 
                         header("location : http://localhost/martikulasi/dosen_plus.php");

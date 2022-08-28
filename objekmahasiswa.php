@@ -34,8 +34,7 @@ Class Mahasiswa {
 
     public function InputAkunMahasiswa($Id,$NIM) {
         include ("koneksi.php");
-        $query = "insert tb_mahasiswa (User_Id) values 
-        ($Id) where NIM = '$NIM'";
+        $query = "update tb_mahasiswa set User_Id = '$Id' where NIM = '$NIM'";
         $mysql = mysqli_query($koneksi,$query);
     }
 
