@@ -77,7 +77,6 @@ $Dosen = new Dosen();
     <section class="dashboard">
         <div class="top">
             <i></i>
-            <img src="asset/admin.jpg" alt="">
         </div>
 
         <div class="dash-content">

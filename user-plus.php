@@ -78,7 +78,6 @@ $user = new User();
     <section class="dashboard">
         <div class="top">
             <i></i>
-            <img src="asset/admin.jpg" alt="">
         </div>
 
         <div class="dash-content">
@@ -126,6 +125,7 @@ $user = new User();
                 </div>
                 
             </div>
+            <br>
             <div>
                 <a href='tambah-user.php' class='btn btn-success'>Tambah data</a>
             </div>
