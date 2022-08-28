@@ -1,5 +1,5 @@
 <?php
-include ("objekdosen.php");
+include("objekdosen.php");
 $Dosen = new Dosen();
 ?>
 
@@ -86,29 +86,25 @@ $Dosen = new Dosen();
                     <i class="uil uil-user-md"></i>
                     <span class="text">Dosen</span>
                 </div>
+                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
+                    <table class="table table-bordered table-striped mb-0" border="1">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">NIK</th>
+                                <th scope="col">Nama Lengkap</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
 
-                <div>
-                    <a href='dosen-plus.php' class='btn btn-success'>Tambah data</a>
-                </div>
-                <br>
-                <table class="table table-bordered table-striped mb-0" border="1">
-                    <thead class="thead-dark">
+                        <!--script php -->
+                        <?php
+                        $mysql = $Dosen->AmbilDataDosen();
+                        $i = 1;
+
+                        while ($tampil = mysqli_fetch_assoc($mysql)) {
+                            echo "
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">NIK</th>
-                            <th scope="col">Nama Lengkap</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-
-                    <!--script php -->
-                    <?php
-                    $mysql = $Dosen->AmbilDataDosen();
-                    $i = 1;
-
-                    while ($tampil = mysqli_fetch_assoc($mysql)) {
-                        echo "
-                    <tr>
                         <td>$i</td>
                         <td>$tampil[NIK]</td>
                         <td>$tampil[Nama_Dosen]</td>
@@ -117,14 +113,19 @@ $Dosen = new Dosen();
                        
                             <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                         </td>
-                    </tr>
-                    ";
-                        $i++;
-                    }
-                    ?>
-                </table>
-
+                        </tr>
+                        ";
+                            $i++;
+                        }
+                        ?>
+                    </table>
+                </div>
+                <br>
             </div>
+            <div>
+                <a href='dosen-plus.php' class='btn btn-success'>Tambah data</a>
+            </div>
+        </div>
     </section>
 
     <script src="script.js"></script>

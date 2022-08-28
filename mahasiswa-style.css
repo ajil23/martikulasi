@@ -302,7 +302,7 @@ nav.close ~ .dashboard .top{
     height: 200px;
     overflow: auto;
     }
-    .table-wrapper-scroll-y {
+.table-wrapper-scroll-y {
     display: block;
     }
 .dash-content .boxes{
