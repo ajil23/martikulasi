@@ -1,3 +1,27 @@
+<?php
+include ("koneksi.php");
+
+class Ujian {
+    public function AmbilDataUjian() {
+        include ("koneksi.php");
+       
+        $query = "select tb_pendaftaran_ujian_kp.Id as Id, Laporan_KP, tb_pendaftaran_ujian_kp.Jadwal_Ujian as Hari, 
+        tb_acc_ujian.Jadwal_Ujian as Tanggal,Nama_Mahasiswa, tb_mahasiswa.NIM as NIM
+        from tb_pendaftaran_ujian_kp
+        left join tb_acc_ujian on tb_acc_ujian.Id = tb_pendaftaran_ujian_kp.ACC_Ujian_Id
+        left join tb_pendaftaran_kp on tb_pendaftaran_kp.Id = tb_pendaftaran_ujian_kp.Pendaftaran_KP_Id
+        left join tb_anggota_kelompok on tb_pendaftaran_kp.Anggota_Kelompok_Id = tb_anggota_kelompok.Id
+        left join tb_mahasiswa on tb_mahasiswa.Anggota_Kelompok_Id = tb_anggota_kelompok.Id";
+        $mysql = mysqli_query($koneksi,$query);
+
+        return $mysql;
+    } 
+}
+
+$Ujian = new Ujian();
+
+?>
+
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
@@ -75,6 +99,7 @@
                             <th scope="col">No</th>
                             <th scope="col">NIM</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Laporan</th>
                             <th scope="col">Jadwal</th>
                             <th scope="col" colspan="2">Aksi</th>
                         </tr>
@@ -82,23 +107,26 @@
 
                     <!--script php -->
                     <?php
-                    include "koneksi.php";
-                    $ambildata = mysqli_query($koneksi, "select tb_pendaftaran_ujian_kp.Id_ujian,tb_pendaftaran_ujian_kp.Laporan_KP,tb_pendaftaran_ujian_kp.Jadwal_Ujian,tb_pendaftaran_kp.Id_pdftr from tb_pendaftaran_ujian_kp join tb_pendaftaran_kp on tb_pendaftaran_ujian_kp.Id_pdftr = tb_pendaftaran_kp.Id_pdftr ");
+                    $ambildata = $Ujian->AmbilDataUjian();
+                    $i = 1;
+
                     while ($tampil = mysqli_fetch_array($ambildata)) {
                         echo "
                         <tr>
-                            <td>$tampil[Id_ujian]</td>
-                            <td>$tampil[Id_pdftr]</td>
+                            <td>$i</td>
+                            <td>$tampil[NIM]</td>
+                            <td>$tampil[Nama_Mahasiswa]</td>
                             <td>$tampil[Laporan_KP]</td>
-                            <td>$tampil[Jadwal_Ujian]</td>
+                            <td>$tampil[Hari] $tampil[Tanggal]</td>
                             <td>
                             <a href='ubah.php' class='btn btn-warning'>Ubah</a>
-                            </td>
-                            <td>
+                           
                             <a href='#' class='btn btn-danger'>Hapus</a>
                             </td>
                        </tr>";
+                       $i++;
                     }
+            
                     ?>
                 </table>
                 <div class="float">

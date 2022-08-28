@@ -100,11 +100,8 @@ if (isset($_POST['submit'])) {
                 $User->InputDataUser($IdRole);
 
                 break;
-
         }
-    
-   
-    } else{
+    } else {
     // pesan salah data tidak boleh kosong 
     }
 }
