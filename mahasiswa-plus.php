@@ -1,3 +1,38 @@
+<?php 
+include("objekmahasiswa.php");
+$Mahasiswa = new Mahasiswa();
+
+if (isset($_POST['submit'])) {
+    $Nama = $_POST['Nama'];
+    $NIM = $_POST['NIM'];
+    $Kelas = $_POST["Kelas"];
+    $Email = $_POST["Email"];
+    $Alamat = $_POST["Alamat"];
+
+    if ($Nama != null && $NIM != null && $Kelas != null && $Email != null && $Alamat != null) {
+
+        $mysql = $Mahasiswa->AmbilDataMahasiswa();
+
+        while($ambil = mysqli_fetch_assoc($mysql)) {
+            if ($Nama == $ambil["Nama_Mahasiswa"] && $NIM == $ambil["NIM"]
+            && $Kelas == $ambil["Kelas"] && $Email == $ambil["Email"] 
+            && $Alamat == $ambil["Alamat"]) {
+                // pesen salah data sudah terdaftar di dalam database
+         
+                header("location : http://localhost/martikulasi/dosen_plus.php");
+            }
+        }
+
+        $Id = $Mahasiswa->FindIdMahasiswa();
+        $Mahasiswa->isidatamahasiswa($Id,$Nama,$NIM,$Kelas,$Email,$Alamat);
+        $Mahasiswa->InputDataMahasiswa();
+   
+    } else{
+    // pesan salah data tidak boleh kosong 
+    }
+}
+?>
+
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
@@ -81,30 +116,30 @@
                     <i class="uil uil-book-reader"></i>
                     <span class="text">Tambah Mahasiswa</span>
                 </div>
-                <form>
+                <form action="" method ="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Nama</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Nama Mahasiswa">
+                            <input type="text" name="Nama" class="form-control" id="inputEmail4" placeholder="Nama Mahasiswa">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">NIM</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="NIM Mahasiswa">
+                            <input type="text" name="NIM" class="form-control" id="inputPassword4" placeholder="NIM Mahasiswa">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Kelas</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Kelas Mahasiswa">
+                            <input type="text" name="Kelas" class="form-control" id="inputPassword4" placeholder="Kelas Mahasiswa">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Email</label>
-                            <input type="email" class="form-control" id="inputPassword4" placeholder="Email Mahasiswa">
+                            <input type="email" name="Email" class="form-control" id="inputPassword4" placeholder="Email Mahasiswa">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">Alamat</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Alamat">
+                        <input type="text" name="Alamat" class="form-control" id="inputAddress" placeholder="Alamat">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

@@ -1,3 +1,117 @@
+<?php
+include ("objekuser.php");
+include ("objekmahasiswa.php");
+include ("objekdosen.php");
+$User = new User();
+$Mahasiswa = new Mahasiswa();
+$Dosen = new Dosen(); 
+
+if (isset($_POST['submit'])) {
+    $Username = $_POST['Username'];
+    $Password = $_POST['Password'];
+    $Nama = $_POST["Nama_User"];
+    $Role = $_POST["Role"];
+    $Number = $_POST["Nomor_Induk"];
+
+    if ($Username != null && $Password != null && $Nama != null && $Role != null && $Number != null) {
+        
+        switch($Role) {
+            case "Mahasiswa" :  
+                $mysql = $User->AmbilDataUserMahasiswa();
+
+                while($ambil = mysqli_fetch_assoc($mysql)) {
+                    if ($Username == $ambil["Username"] && $Password == $ambil["Password"]) {
+                        // pesen salah akun telah terdaftar
+
+                        header("location : http://localhost/martikulasi/dosen_plus.php");
+                    }
+                }
+        
+                $boolean = false;
+                $mysql = $Mahasiswa->AmbilDataMahasiswa();
+                while($ambil = mysqli_fetch_assoc($mysql)) {
+                    if ($Nama == $ambil["Nama_Mahasiswa"] && $Number == $ambil["NIM"]) {
+                        $boolean = true;
+                        break;
+                    }
+                }
+
+                if ($boolean) {
+                    $Id = $User->FindIdUser();
+                    $IdRole = $User->IsiIdRole($Role);
+
+                    $User->IsiDataUser($Id,$Username,$Password,$Role,$Number,$Nama);
+                    $User->InputDataUser($IdRole);
+
+                    $Mahasiswa->InputAkunMahasiswa($Id,$Number);
+                } else if (!$boolean){
+                    // pesan salah pemilik tidak dapat di temukan
+                }
+              
+                break;
+            case "Dosen" || "Admin" :
+                $mysql = $User->AmbilDataUserPegawai();
+
+                while($ambil = mysqli_fetch_assoc($mysql)) {
+                    if ($Username == $ambil["Username"] && $Password == $ambil["Password"]) {
+                        // pesen salah akun telah terdaftar
+
+                        header("location : http://localhost/martikulasi/dosen_plus.php");
+                    }
+                }
+        
+                $boolean = false;
+                $mysql = $Dosen->AmbilDataDosen();
+                while($ambil = mysqli_fetch_assoc($mysql)) {
+                    if ($Nama == $ambil["Nama_Dosen"] && $Number == $ambil["NIK"]) {
+                        $boolean = true;
+                        break;
+                    }
+                }
+
+                if ($boolean) {
+                    $Id = $User->FindIdUser();
+                    $IdRole = $User->IsiIdRole($Role);
+
+                    $User->IsiDataUser($Id,$Username,$Password,$Role,$Number,$Nama);
+                    $User->InputDataUser($IdRole);
+
+                    $Dosen->InputAkunDosen($Id,$Number);
+                } else if (!$boolean){
+                    // pesan salah pemilik tidak dapat di temukan
+                }
+              
+                break;
+            case "Koordinator KP" :
+                $mysql = $User->AmbilDataUserPegawai();
+
+                while($ambil = mysqli_fetch_assoc($mysql)) {
+                    if ($Username == $ambil["Username"] && $Password == $ambil["Password"]) {
+                        // pesen salah akun telah terdaftar
+
+                        header("location : http://localhost/martikulasi/dosen_plus.php");
+                    }
+                }
+
+                $Id = $User->FindIdUser();
+                $IdRole = $User->IsiIdRole($Role);
+
+                $User->IsiDataUser($Id,$Username,$Password,$Role,$Number,$Nama);
+                $User->InputDataUser($IdRole);
+
+                break;
+
+        }
+    
+   
+    } else{
+    // pesan salah data tidak boleh kosong 
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
@@ -81,23 +195,23 @@
                     <i class="uil uil-user-plus"></i>
                     <span class="text">Tambah User</span>
                 </div>
-                <form>
+                <form action="" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Username</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Username">
+                            <input type="text" name="Username" class="form-control" id="inputEmail4" placeholder="Username">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Katasandi">
+                            <input type="password" name="Password" class="form-control" id="inputPassword4" placeholder="Katasandi">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Nama Pemilik</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Nama Pemilik">
+                            <input type="text" name="Nama_User"class="form-control" id="inputPassword4" placeholder="Nama Pemilik">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Role</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select name="Role" class="form-control" id="exampleFormControlSelect1">
                                 <option>Pilih role</option>
                                 <option>Mahasiswa</option>
                                 <option>Admin</option>
@@ -106,12 +220,12 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputPassword4">NIK</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="NIK">
+                            <label for="inputPassword4">Nomor Induk</label>
+                            <input type="text" name="Nomor_Induk" class="form-control" id="inputPassword4" placeholder="input NIM / NIK user">
                         </div>
 
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

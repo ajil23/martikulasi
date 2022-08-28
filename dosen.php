@@ -109,7 +109,9 @@ $Dosen = new Dosen();
                         <td>$tampil[NIK]</td>
                         <td>$tampil[Nama_Dosen]</td>
                         <td>
-                                 <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                            <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Edit</a>
+                       
+                            <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                         </td>
                         </tr>
                         ";

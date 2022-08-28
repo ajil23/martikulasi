@@ -2,32 +2,32 @@
 include ("objekdosen.php");
 $Dosen = new Dosen();
 
-if (isset($_POST["daftar"])) {
-    if (isset($_POST["NamaDosen"]) && isset($_POST["NIKDosen"])) {
-        $Nama = $_POST["NamaDosen"];
-        $NIK = $_POST["NIKDosen"];
+if (isset($_POST['submit'])) {
+    $Nama = $_POST['NamaDosen'];
+    $NIK = $_POST['NIKDosen'];
+
+    if ($Nama != null && $NIK != null) {
+
         $mysql = $Dosen->AmbilDataDosen();
 
         while($ambil = mysqli_fetch_assoc($mysql)) {
-            if ($Nama = $ambil["Nama_Dosen"] && $NIK = $ambil["NIK"]) {
-                //pesen salah data sudah terdaftar di dalam database
-                header("location: http://localhost/martikulasi/dosen-plus.php" );
-                exit;
+            if ($Nama == $ambil["Nama_Dosen"] && $NIK == $ambil["NIK"]) {
+                // pesen salah data sudah terdaftar di dalam database
+         
+                header("location : http://localhost/martikulasi/dosen_plus.php");
             }
         }
-        
+
         $Id = $Dosen->FindIdDosen();
         $Dosen->IsiDataDosen($Id,$Nama,$NIK);
         $Dosen->InputDataDosen();
-
-        header("location: http://localhost/martikulasi/dosen-plus.php" );
-
-        
+   
     } else{
-        //pesan salah data tidak boleh kosong
+    // pesan salah data tidak boleh kosong 
     }
 }
 ?>
+
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
@@ -109,20 +109,20 @@ if (isset($_POST["daftar"])) {
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-user-md"></i>
-                    <span class="text">Tambah Dosen</span>
+                    <span class="text">Tambah Data Dosen</span>
                 </div>
-                <form method = "post" action="">
+                <form action="" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Nama</label>
-                            <input type="text" name="NamaDosen" class="form-control" id="inputEmail4" placeholder="Nama Dosen">
+                            <label for="NamaDosen">Nama</label>
+                            <input type="text" name="NamaDosen" class="form-control" id="NamaDosen" placeholder="Nama Dosen">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputPassword4">NIK</label>
-                            <input type="text" name="NIKDosen" class="form-control" id="inputPassword4" placeholder="NIK Dosen">
+                            <label for="NIKDosen">NIK</label>
+                            <input type="text" name="NIKDosen" class="form-control" id="NIKDosen" placeholder="NIK Dosen">
                         </div>
                     </div>
-                    <button type="submit" name="daftar" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

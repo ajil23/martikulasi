@@ -1,102 +1,6 @@
 <?php
-class Mahasiswa
-{
-    private $Id;
-    private $NIM;
-    private $Nama;
-    private $Alamat;
-    private $Kelas;
-    private $Email;
-
-    private function setdata($Id, $NIM, $Nama, $Alamat, $Kelas, $Email)
-    {
-        $this->Id = $Id;
-        $this->NIM = $NIM;
-        $this->Nama = $Nama;
-        $this->Alamat = $Alamat;
-        $this->Kelas = $Kelas;
-        $this->Email = $Email;
-    }
-
-    public function getId()
-    {
-        return $this->Id;
-    }
-    public function getNIM()
-    {
-        return $this->NIM;
-    }
-
-    public function getNama()
-    {
-        return $this->Nama;
-    }
-
-    public function getAlamat()
-    {
-        return $this->Alamat;
-    }
-
-    public function getKelas()
-    {
-        return $this->Kelas;
-    }
-
-    public function getEmail()
-    {
-        return $this->Email;
-    }
-
-    public function isidata($Id, $NIM, $Nama, $Alamat, $Kelas, $Email)
-    {
-        $this->setdata($Id, $NIM, $Nama, $Alamat, $Kelas, $Email);
-    }
-}
-
-class OperationsMahasiswa extends Mahasiswa
-{
-    public function FindIdMahasiswa()
-    {
-        include "koneksi.php";
-        $query = "select Id from tb_mahasiswa order by Id desc limit 1";
-        $mysql = mysqli_query($koneksi, $query);
-        $Id;
-
-        if (mysqli_num_rows($mysql) === 1) {
-            while ($input = mysqli_fetch_assoc($mysql)) {
-                $Id = $input["Id"] + 1;
-            }
-        } else {
-            $Id = 1;
-        }
-
-        return $Id;
-    }
-
-    public function InputDataMahasiswa()
-    {
-        include "koneksi.php";
-        $query = " ";
-        $mysql = mysqli_query($koneksi, $query);
-    }
-
-    public function AmbilDataMahasiswa()
-    {
-        include "koneksi.php";
-        $query = "select * from tb_mahasiswa order by NIM asc ";
-        $mysql = mysqli_query($koneksi, $query);
-        return $mysql;
-    }
-
-    public function EditDataMahasiswa()
-    {
-        include "koneksi.php";
-        $query = " ";
-        $mysql = mysqli_query($koneksi, $query);
-    }
-}
-
-$mahasiswa = new OperationsMahasiswa();
+include ("objekmahasiswa.php");
+$mahasiswa = new Mahasiswa();
 
 ?>
 
@@ -184,18 +88,18 @@ $mahasiswa = new OperationsMahasiswa();
                     <span class="text">Mahasiswa</span>
                 </div>
                 <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
-                    <table class="table table-bordered table-striped mb-0" border="1">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">NIM</th>
-                                <th scope="col">Nama Lengkap</th>
-                                <th scope="col">Kelas</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Alamat</th>
-                                <th scope="col">E-mail</th>
-                                <th scope="col">Aksi</th>
-                            </tr>
-                        </thead>
+                <table class="table table-bordered table-striped mb-0" border="1" >
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">NIM</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Kelas</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
 
                         <!--script php -->
                         <?php
@@ -212,7 +116,9 @@ $mahasiswa = new OperationsMahasiswa();
                         <td>$tampil[Alamat]</td>
                         <td>$tampil[Email]</td>
                         <td>
-                                 <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                        <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Edit</a>
+
+                        <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                         </td>
                     </tr>
                     ";

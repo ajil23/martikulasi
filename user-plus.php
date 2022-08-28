@@ -103,7 +103,7 @@ $user = new User();
 
                     <!--script php -->
                     <?php
-                    $mysql = $user->AmbilDataUser();
+                    $mysql = $user->AmbilDataUserMahasiswa();
                     $i = 1;
 
                     while ($tampil = mysqli_fetch_assoc($mysql)) {
