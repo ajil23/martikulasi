@@ -9,19 +9,24 @@ if (isset($_POST['submit'])) {
     if ($Nama != null && $NIK != null) {
 
         $mysql = $Dosen->AmbilDataDosen();
+        $boolean = false;
 
         while($ambil = mysqli_fetch_assoc($mysql)) {
             if ($Nama == $ambil["Nama_Dosen"] && $NIK == $ambil["NIK"]) {
+                $boolean = true;
                 // pesen salah data sudah terdaftar di dalam database
-         
-                header("location : http://localhost/martikulasi/dosen_plus.php");
+
+                header("location:  http://localhost/martikulasi/dosen-plus.php");
             }
         }
 
-        $Id = $Dosen->FindIdDosen();
-        $Dosen->IsiDataDosen($Id,$Nama,$NIK);
-        $Dosen->InputDataDosen();
-   
+        if ($boolean == false) {
+            $Id = $Dosen->FindIdDosen();
+            $Dosen->IsiDataDosen($Id,$Nama,$NIK);
+            $Dosen->InputDataDosen();
+            header("location:  http://localhost/martikulasi/dosen.php");
+        } 
+
     } else{
     // pesan salah data tidak boleh kosong 
     }

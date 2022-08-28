@@ -28,10 +28,9 @@ Class Dosen {
         $mysql = mysqli_query($koneksi,$query);
     }
 
-    public function InputAkunDosen($Id) {
+    public function InputAkunDosen($Id,$NIK) {
         include ("koneksi.php");
-        $query = "insert tb_dosen (User_Id) values 
-        ($Id)";
+        $query = "update tb_dosen set User_Id = $Id where NIK = '$NIK'";
         $mysql = mysqli_query($koneksi,$query);
     }
 

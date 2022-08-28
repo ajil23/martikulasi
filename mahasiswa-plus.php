@@ -10,23 +10,27 @@ if (isset($_POST['submit'])) {
     $Alamat = $_POST["Alamat"];
 
     if ($Nama != null && $NIM != null && $Kelas != null && $Email != null && $Alamat != null) {
-
         $mysql = $Mahasiswa->AmbilDataMahasiswa();
+        $boolean = false;
 
         while($ambil = mysqli_fetch_assoc($mysql)) {
             if ($Nama == $ambil["Nama_Mahasiswa"] && $NIM == $ambil["NIM"]
             && $Kelas == $ambil["Kelas"] && $Email == $ambil["Email"] 
             && $Alamat == $ambil["Alamat"]) {
-                // pesen salah data sudah terdaftar di dalam database
-         
-                header("location : http://localhost/martikulasi/dosen_plus.php");
+                $boolean = true;
+                //pesan salah data telah ada
+
+                header("location:  http://localhost/martikulasi/mahasiswa-plus.php");
             }
         }
+        
+        if($boolean == false) {
+            $Id = $Mahasiswa->FindIdMahasiswa();
+            $Mahasiswa->isidatamahasiswa($Id,$NIM,$Nama,$Kelas,$Email,$Alamat);
+            $Mahasiswa->InputDataMahasiswa();
+            header("location:  http://localhost/martikulasi/mahasiswa.php");
+        }
 
-        $Id = $Mahasiswa->FindIdMahasiswa();
-        $Mahasiswa->isidatamahasiswa($Id,$Nama,$NIM,$Kelas,$Email,$Alamat);
-        $Mahasiswa->InputDataMahasiswa();
-   
     } else{
     // pesan salah data tidak boleh kosong 
     }
