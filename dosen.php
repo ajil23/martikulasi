@@ -91,6 +91,7 @@ $Dosen = new Dosen();
                     <a href='dosen-plus.php' class='btn btn-success'>Tambah data</a>
                 </div>
                 <br>
+                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
                 <table class="table table-bordered table-striped mb-0" border="1">
                     <thead class="thead-dark">
                         <tr>
@@ -121,7 +122,7 @@ $Dosen = new Dosen();
                     }
                     ?>
                 </table>
-
+                </div>
             </div>
     </section>
 
