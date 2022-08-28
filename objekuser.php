@@ -5,6 +5,7 @@ Class User {
     public $Password;
     public $Role;
     public $NI;
+    public $NR;
 
     public function FindIdUser () {
         include ("koneksi.php");
@@ -24,15 +25,24 @@ Class User {
     }
 
     public function InputDataUser($NomorRole) {
+        global$Id,$Username,$Password,$Username,$Role;
         include ("koneksi.php");
         $query = "insert tb_user values($Id,'$Username','$Password',$NomorRole)";
         $mysql = mysqli_query($koneksi,$query);
     }
 
-    public function AmbilDataUser() {
+    public function AmbilDataUserMahasiswa() {
         include ("koneksi.php");
         $query = "select * from tb_user left join tb_user_role on Id_Role = Id_User 
         left join tb_mahasiswa on tb_mahasiswa.User_Id = tb_user.Id order by Username asc";
+        $mysql = mysqli_query($koneksi,$query);
+        return $mysql;
+    }
+
+    public function AmbilDataUserPegawai() {
+        include ("koneksi.php");
+        $query = "select * from tb_user left join tb_user_role on Id_Role = Id_User 
+        left join tb_dosen on tb_dosen.User_Id = tb_user.Id order by NIK asc";
         $mysql = mysqli_query($koneksi,$query);
         return $mysql;
     }
@@ -43,13 +53,35 @@ Class User {
         $mysql = mysqli_query($koneksi,$query);
     }
 
-    public function IsiDataUser($Id,$Username,$Password,$Role,$NI) {
+    public function IsiDataUser($Id,$Username,$Password,$Role,$NI,$Nama) {
         $this->Id = $Id;
         $this->Username = $Username;
         $this->Password = $Password;
         $this->Role = $Role;
         $this->NI = $NI;
+        $this->Nama = $Nama;
         ;
+    }
+
+    public function IsiIdRole($Role) {
+      global $NR;
+
+        switch ($Role) {
+            case "Mahasiswa" :
+                $NR = 1;
+                break;
+            case "Dosen" :
+                $NR = 2;
+                break;
+            case "Koordinator KP" :
+                $NR = 3;
+                break;
+            case "Admin" :
+                $NR = 4;
+                break;
+        }
+
+        return $NR;
     }
 }
 

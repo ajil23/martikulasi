@@ -1,6 +1,6 @@
 <?php
 include ("objekuser.php");
-$user = new OperationsUser();
+$user = new User();
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +103,7 @@ $user = new OperationsUser();
 
                     <!--script php -->
                     <?php
-                    $mysql = $user->AmbilDataUser();
+                    $mysql = $user->AmbilDataUserMahasiswa();
                     $i = 1;
 
                     while ($tampil = mysqli_fetch_assoc($mysql)) {
