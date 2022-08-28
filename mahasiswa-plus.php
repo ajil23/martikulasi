@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("objekmahasiswa.php");
 $Mahasiswa = new Mahasiswa();
 
@@ -13,26 +13,41 @@ if (isset($_POST['submit'])) {
         $mysql = $Mahasiswa->AmbilDataMahasiswa();
         $boolean = false;
 
-        while($ambil = mysqli_fetch_assoc($mysql)) {
-            if ($Nama == $ambil["Nama_Mahasiswa"] && $NIM == $ambil["NIM"]
-            && $Kelas == $ambil["Kelas"] && $Email == $ambil["Email"] 
-            && $Alamat == $ambil["Alamat"]) {
+        while ($ambil = mysqli_fetch_assoc($mysql)) {
+            if (
+                $Nama == $ambil["Nama_Mahasiswa"] && $NIM == $ambil["NIM"]
+                && $Kelas == $ambil["Kelas"] && $Email == $ambil["Email"]
+                && $Alamat == $ambil["Alamat"]
+            ) {
                 $boolean = true;
                 //pesan salah data telah ada
+                function alertWindow($msg)
+                {
+                    echo "<script type ='text/JavaScript'>";
+                    echo "alert('$msg')";
+                    echo "</script>";
+                }
+                alertWindow("Data telah ada");
 
                 header("location:  http://localhost/martikulasi/mahasiswa-plus.php");
             }
         }
-        
-        if($boolean == false) {
+
+        if ($boolean == false) {
             $Id = $Mahasiswa->FindIdMahasiswa();
-            $Mahasiswa->isidatamahasiswa($Id,$NIM,$Nama,$Kelas,$Email,$Alamat);
+            $Mahasiswa->isidatamahasiswa($Id, $NIM, $Nama, $Kelas, $Email, $Alamat);
             $Mahasiswa->InputDataMahasiswa();
             header("location:  http://localhost/martikulasi/mahasiswa.php");
         }
-
-    } else{
-    // pesan salah data tidak boleh kosong 
+    } else {
+        // pesan salah data tidak boleh kosong 
+        function alertWindow($msg)
+        {
+            echo "<script type ='text/JavaScript'>";
+            echo "alert('$msg')";
+            echo "</script>";
+        }
+        alertWindow("Data tidak boleh kosong ");
     }
 }
 ?>
@@ -120,7 +135,7 @@ if (isset($_POST['submit'])) {
                     <i class="uil uil-book-reader"></i>
                     <span class="text">Tambah Mahasiswa</span>
                 </div>
-                <form action="" method ="post">
+                <form action="" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Nama</label>

@@ -161,9 +161,8 @@ $KP = new KP();
 
                 </table>
                 <?php
-
                 if (isset($_GET['hapus'])) {
-                    mysqli_query($koneksi, "delete from tb_pendaftaran_kp where Id_pdftr='$_GET[hapus]'");
+                    mysqli_query($koneksi, "delete from tb_pendaftaran_kp where Id='$_GET[hapus]'");
                     echo "<meta http-equiv=refresh content=1;URL=daftar.php>";
                 }
                 ?>

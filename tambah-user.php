@@ -1,10 +1,10 @@
 <?php
-include ("objekuser.php");
-include ("objekmahasiswa.php");
-include ("objekdosen.php");
+include("objekuser.php");
+include("objekmahasiswa.php");
+include("objekdosen.php");
 $User = new User();
 $Mahasiswa = new Mahasiswa();
-$Dosen = new Dosen(); 
+$Dosen = new Dosen();
 
 if (isset($_POST['submit'])) {
     $Username = $_POST['Username'];
@@ -14,22 +14,29 @@ if (isset($_POST['submit'])) {
     $Number = $_POST["Nomor_Induk"];
 
     if ($Username != null && $Password != null && $Nama != null && $Role != null && $Number != null) {
-        
-        switch($Role) {
-            case "Mahasiswa" :  
+
+        switch ($Role) {
+            case "Mahasiswa":
                 $mysql = $User->AmbilDataUserMahasiswa();
 
-                while($ambil = mysqli_fetch_assoc($mysql)) {
+                while ($ambil = mysqli_fetch_assoc($mysql)) {
                     if ($Username == $ambil["Username"] && $Password == $ambil["Password"]) {
                         // pesen salah akun telah terdaftar
+                        function alertWindow($msg)
+                        {
+                            echo "<script type ='text/JavaScript'>";
+                            echo "alert('$msg')";
+                            echo "</script>";
+                        }
+                        alertWindow("Akun telah terdaftar");
 
                         header("location : http://localhost/martikulasi/dosen_plus.php");
                     }
                 }
-        
+
                 $boolean = false;
                 $mysql = $Mahasiswa->AmbilDataMahasiswa();
-                while($ambil = mysqli_fetch_assoc($mysql)) {
+                while ($ambil = mysqli_fetch_assoc($mysql)) {
                     if ($Nama == $ambil["Nama_Mahasiswa"] && $Number == $ambil["NIM"]) {
                         $boolean = true;
                         break;
@@ -40,29 +47,43 @@ if (isset($_POST['submit'])) {
                     $Id = $User->FindIdUser();
                     $IdRole = $User->IsiIdRole($Role);
 
-                    $User->IsiDataUser($Id,$Username,$Password,$Role,$Number,$Nama);
+                    $User->IsiDataUser($Id, $Username, $Password, $Role, $Number, $Nama);
                     $User->InputDataUser($IdRole);
 
-                    $Mahasiswa->InputAkunMahasiswa($Id,$Number);
-                } else if (!$boolean){
+                    $Mahasiswa->InputAkunMahasiswa($Id, $Number);
+                } else if (!$boolean) {
                     // pesan salah pemilik tidak dapat di temukan
+                    function alertWindow($msg)
+                    {
+                        echo "<script type ='text/JavaScript'>";
+                        echo "alert('$msg')";
+                        echo "</script>";
+                    }
+                    alertWindow("Pemilik tidak dapat di temukan");
                 }
-              
+
                 break;
-            case "Dosen" || "Admin" :
+            case "Dosen" || "Admin":
                 $mysql = $User->AmbilDataUserPegawai();
 
-                while($ambil = mysqli_fetch_assoc($mysql)) {
+                while ($ambil = mysqli_fetch_assoc($mysql)) {
                     if ($Username === $ambil["Username"] && $Password === $ambil["Password"]) {
                         // pesen salah akun telah terdaftar
+                        function alertWindow($msg)
+                        {
+                            echo "<script type ='text/JavaScript'>";
+                            echo "alert('$msg')";
+                            echo "</script>";
+                        }
+                        alertWindow("Akun telah terdaftar");
 
                         header("location : http://localhost/martikulasi/dosen_plus.php");
                     }
                 }
-        
+
                 $boolean = false;
                 $mysql = $Dosen->AmbilDataDosen();
-                while($ambil = mysqli_fetch_assoc($mysql)) {
+                while ($ambil = mysqli_fetch_assoc($mysql)) {
                     if ($Nama === $ambil["Nama_Dosen"] && $Number === $ambil["NIK"]) {
                         $boolean = true;
                         break;
@@ -73,19 +94,26 @@ if (isset($_POST['submit'])) {
                     $Id = $User->FindIdUser();
                     $IdRole = $User->IsiIdRole($Role);
 
-                    $User->IsiDataUser($Id,$Username,$Password,$Role,$Number,$Nama);
+                    $User->IsiDataUser($Id, $Username, $Password, $Role, $Number, $Nama);
                     $User->InputDataUser($IdRole);
 
-                    $Dosen->InputAkunDosen($Id,$Number);
-                } else if (!$boolean){
+                    $Dosen->InputAkunDosen($Id, $Number);
+                } else if (!$boolean) {
                     // pesan salah pemilik tidak dapat di temukan
+                    function alertWindow($msg)
+                    {
+                        echo "<script type ='text/JavaScript'>";
+                        echo "alert('$msg')";
+                        echo "</script>";
+                    }
+                    alertWindow("Pemilik tidak dapat di temukan");
                 }
-              
+
                 break;
-            case "Koordinator KP" :
+            case "Koordinator KP":
                 $mysql = $User->AmbilDataUserPegawai();
 
-                while($ambil = mysqli_fetch_assoc($mysql)) {
+                while ($ambil = mysqli_fetch_assoc($mysql)) {
                     if ($Username === $ambil["Username"] && $Password === $ambil["Password"]) {
                         // pesen salah akun telah terdaftar
 
@@ -96,13 +124,13 @@ if (isset($_POST['submit'])) {
                 $Id = $User->FindIdUser();
                 $IdRole = $User->IsiIdRole($Role);
 
-                $User->IsiDataUser($Id,$Username,$Password,$Role,$Number,$Nama);
+                $User->IsiDataUser($Id, $Username, $Password, $Role, $Number, $Nama);
                 $User->InputDataUser($IdRole);
 
                 break;
         }
     } else {
-    // pesan salah data tidak boleh kosong 
+        // pesan salah data tidak boleh kosong 
     }
 }
 
@@ -204,7 +232,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Nama Pemilik</label>
-                            <input type="text" name="Nama_User"class="form-control" id="inputPassword4" placeholder="Nama Pemilik">
+                            <input type="text" name="Nama_User" class="form-control" id="inputPassword4" placeholder="Nama Pemilik">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Role</label>
