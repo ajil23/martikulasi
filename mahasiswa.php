@@ -97,7 +97,7 @@ $mahasiswa = new Mahasiswa();
                             <th scope="col">Kelas</th>
                             <th scope="col">Alamat</th>
                             <th scope="col">E-mail</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col" colspan="2">Aksi</th>
                         </tr>
                     </thead>
 
@@ -116,8 +116,9 @@ $mahasiswa = new Mahasiswa();
                         <td>$tampil[Alamat]</td>
                         <td>$tampil[Email]</td>
                         <td>
-                        <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Edit</a>
-
+                        <a href='*' class='btn btn-warning' onClick=\"return confirm('Apakah anda yakin?');\">Edit</a>
+                        </td>
+                        <td>
                         <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                         </td>
                     </tr>

@@ -93,7 +93,7 @@ $Dosen = new Dosen();
                                 <th scope="col">No</th>
                                 <th scope="col">NIK</th>
                                 <th scope="col">Nama Lengkap</th>
-                                <th scope="col">Aksi</th>
+                                <th scope="col" colspan="2">Aksi</th>
                             </tr>
                         </thead>
 
@@ -109,8 +109,9 @@ $Dosen = new Dosen();
                         <td>$tampil[NIK]</td>
                         <td>$tampil[Nama_Dosen]</td>
                         <td>
-                            <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Edit</a>
-                       
+                        <a href='*' class='btn btn-warning' onClick=\"return confirm('Apakah anda yakin?');\">Edit</a>
+                        </td>
+                        <td>
                             <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                         </td>
                         </tr>
