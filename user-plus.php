@@ -1,6 +1,6 @@
 <?php
 include ("objekuser.php");
-$user = new OperationsUser();
+$user = new User();
 ?>
 
 <!DOCTYPE html>
