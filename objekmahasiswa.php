@@ -25,8 +25,17 @@ Class Mahasiswa {
     }
 
     public function InputDataMahasiswa() {
+        global $Id,$Nama,$NIM,$Alamat,$Kelas,$Email;
         include ("koneksi.php");
-        $query = " ";
+        $query = "insert tb_mahasiswa (Id, Nama_Mahasiswa,NIM,Kelas,Email,Alamat) values 
+        ($Id,'$Nama','$NIM','$Kelas','$Email','$Alamat')";
+        $mysql = mysqli_query($koneksi,$query);
+    }
+
+    public function InputAkunMahasiswa($Id,$NIM) {
+        include ("koneksi.php");
+        $query = "insert tb_mahasiswa (User_Id) values 
+        ($Id) where NIM = '$NIM'";
         $mysql = mysqli_query($koneksi,$query);
     }
 
@@ -37,12 +46,12 @@ Class Mahasiswa {
         return $mysql;
     }
 
-    public function EditDataMahasiswa() {
+    public function EditDataMahasiswa($Id) {
         include ("koneksi.php");
         $query = " ";
         $mysql = mysqli_query($koneksi,$query);
     }
-    public function isidatamahasiswa($Id,$NIM,$Nama,$Alamat,$Kelas,$Email) {
+    public function isidatamahasiswa($Id,$NIM,$Nama,$Kelas,$Email,$Alamat) {
         $this->Id = $Id;
         $this->NIM =$NIM;
         $this->Nama = $Nama;
