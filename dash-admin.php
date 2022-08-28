@@ -77,7 +77,29 @@
                     <i class="uil uil-estate"></i>
                     <span class="text">Dashboard</span>
                 </div>
-              
+                <div class="card-deck">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-header">Jumlah Mahasiswa</div>
+                        <div class="card-body">
+                            <h1 class="card-title">210</h1>
+                            <p class="card-text">Mahasiswa jurusan teknik informatika</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-header">Jumlah Pendaftar KP</div>
+                        <div class="card-body">
+                            <h1 class="card-title">200</h1>
+                            <p class="card-text">Mahasiswa yang sudah mendaftar kerja praktek</p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-success mb-3">
+                    <div class="card-header">Jumlah Pendaftar Ujian KP</div>
+                        <div class="card-body">
+                            <h1 class="card-title">190</h1>
+                            <p class="card-text">Mahasiswa yang mendaftar ujian kerja praktek</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
