@@ -36,14 +36,27 @@ Class Dosen {
 
     public function AmbilDataDosen() {
         include ("koneksi.php");
-        $query = "select * from tb_dosen order by NIK asc ";
+        $query = "select * from tb_dosen order by NIK asc";
         $mysql = mysqli_query($koneksi,$query);
         return $mysql;
     }
 
     public function EditDataDosen() {
+        global $Id,$Nama,$NIK;
         include ("koneksi.php");
-        $query = "update tb_dosen set Id = $Id, Nama_Dosen = $Nama, NIK = $NIK";
+        $query = "update tb_dosen set Nama_Dosen='$Nama', NIK='$NIK' where Id = $Id";
+        $mysql = mysqli_query($koneksi,$query);
+    }
+
+    public function HapusDataDosen($Id) {
+        include ("koneksi.php");
+        $query = "delete from tb_dosen where Id = '$Id'";
+        $mysql = mysqli_query($koneksi,$query);
+    }
+
+    public function HapusAkunDosen($Id) {
+        include ("koneksi.php");
+        $query = "update tb_dosen set User_Id = null where Id = $Id";
         $mysql = mysqli_query($koneksi,$query);
     }
 

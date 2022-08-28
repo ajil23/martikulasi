@@ -80,7 +80,6 @@ if (isset($_POST['login'])) {
                         <div class="input-field" >
                             <input type="password" class="password" name="password" id ="password" placeholder ="Katasandi" require>
                             <i class="uil uil-lock-alt"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
                         </div>
                     
                         <div class="checkbox-text">

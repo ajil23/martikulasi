@@ -115,10 +115,10 @@ $mahasiswa = new Mahasiswa();
                         <td>$tampil[Alamat]</td>
                         <td>$tampil[Email]</td>
                         <td>
-                        <a href='edit-mahasiswa.php' class='btn btn-warning'>Edit</a>
+                        <a href='edit-mahasiswa.php?Id=$tampil[Id]' class='btn btn-warning'>Edit</a>
                         </td>
                         <td>
-                        <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                        <a href='hapusmahasiswa.php?Id=$tampil[Id]?' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                         </td>
                     </tr>
                     ";

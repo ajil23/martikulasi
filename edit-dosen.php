@@ -1,32 +1,30 @@
 <?php
 include ("objekdosen.php");
 $Dosen = new Dosen();
+$Id = $_GET['Id'];
+
+$Namatampil;
+$NIKtampil;
+
+$mysql = $Dosen->AmbilDataDosen();
+while($ambil = mysqli_fetch_assoc($mysql)) {
+    if ($Id == $ambil['Id']) {
+        $Namatampil = $ambil["Nama_Dosen"];
+        $NIKtampil = $ambil["NIK"];        
+    }
+}
 
 if (isset($_POST['submit'])) {
     $Nama = $_POST['NamaDosen'];
     $NIK = $_POST['NIKDosen'];
 
     if ($Nama != null && $NIK != null) {
-
-        $mysql = $Dosen->AmbilDataDosen();
-        $boolean = false;
-
-        while($ambil = mysqli_fetch_assoc($mysql)) {
-            if ($Nama == $ambil["Nama_Dosen"] && $NIK == $ambil["NIK"]) {
-                $boolean = true;
-                // pesen salah data sudah terdaftar di dalam database
-
-                header("location:  http://localhost/martikulasi/dosen-plus.php");
-            }
-        }
-
-        if ($boolean == false) {
-            $Id = $Dosen->FindIdDosen();
-            $Dosen->IsiDataDosen($Id,$Nama,$NIK);
-            $Dosen->InputDataDosen();
-            header("location:  http://localhost/martikulasi/dosen.php");
-        } 
-
+        $Dosen->IsiDataDosen($Id,$Nama,$NIK);
+        $Dosen->EditDataDosen();
+        
+        //pesan data berhasil di ubah
+        header("location:  http://localhost/martikulasi/dosen.php");
+       
     } else{
     // pesan salah data tidak boleh kosong 
     }
@@ -53,7 +51,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Mahasiswa</title>
+    <title>Dosen</title>
 </head>
 
 <body>
@@ -120,11 +118,11 @@ if (isset($_POST['submit'])) {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="NamaDosen">Nama</label>
-                            <input type="text" name="NamaDosen" class="form-control" id="NamaDosen" placeholder="Nama Dosen">
+                            <input type="text" name="NamaDosen" class="form-control" id="NamaDosen" value="<?php echo $Namatampil?>">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="NIKDosen">NIK</label>
-                            <input type="text" name="NIKDosen" class="form-control" id="NIKDosen" placeholder="NIK Dosen">
+                            <input type="text" name="NIKDosen" class="form-control" id="NIKDosen" value="<?php echo $NIKtampil?>">
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>

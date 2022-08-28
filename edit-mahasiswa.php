@@ -1,6 +1,24 @@
 <?php 
 include("objekmahasiswa.php");
 $Mahasiswa = new Mahasiswa();
+$Id = $_GET["Id"];
+
+$Namatampil;
+$NIMtampil;
+$Kelastampil;
+$Emailtampil;
+$Alamattampil;
+
+$mysql = $Mahasiswa->AmbilDataMahasiswa();
+while($ambil = mysqli_fetch_assoc($mysql)) {
+    if ($Id == $ambil['Id']) {
+        $Namatampil = $ambil['Nama_Mahasiswa'];
+        $NIMtampil = $ambil['NIM'];
+        $Kelastampil = $ambil['Kelas'];
+        $Emailtampil = $ambil['Email'];
+        $Alamattampil = $ambil['Alamat'];
+    }
+}
 
 if (isset($_POST['submit'])) {
     $Nama = $_POST['Nama'];
@@ -10,26 +28,12 @@ if (isset($_POST['submit'])) {
     $Alamat = $_POST["Alamat"];
 
     if ($Nama != null && $NIM != null && $Kelas != null && $Email != null && $Alamat != null) {
-        $mysql = $Mahasiswa->AmbilDataMahasiswa();
-        $boolean = false;
-
-        while($ambil = mysqli_fetch_assoc($mysql)) {
-            if ($Nama == $ambil["Nama_Mahasiswa"] && $NIM == $ambil["NIM"]
-            && $Kelas == $ambil["Kelas"] && $Email == $ambil["Email"] 
-            && $Alamat == $ambil["Alamat"]) {
-                $boolean = true;
-                //pesan salah data telah ada
-
-                header("location:  http://localhost/martikulasi/mahasiswa-plus.php");
-            }
-        }
-        
-        if($boolean == false) {
-            $Id = $Mahasiswa->FindIdMahasiswa();
-            $Mahasiswa->isidatamahasiswa($Id,$NIM,$Nama,$Kelas,$Email,$Alamat);
-            $Mahasiswa->InputDataMahasiswa();
-            header("location:  http://localhost/martikulasi/mahasiswa.php");
-        }
+       
+        $Mahasiswa->isidatamahasiswa($Id,$NIM,$Nama,$Kelas,$Email,$Alamat);
+        $Mahasiswa->EditDataMahasiswa();
+            
+        //pesan data berhasil di ubah
+        header("location:  http://localhost/martikulasi/mahasiswa.php");
 
     } else{
     // pesan salah data tidak boleh kosong 
@@ -124,24 +128,24 @@ if (isset($_POST['submit'])) {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Nama</label>
-                            <input type="text" name="Nama" class="form-control" id="inputEmail4" placeholder="Nama Mahasiswa">
+                            <input type="text" name="Nama" class="form-control" id="inputEmail4" value="<?php echo $Namatampil;?>">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">NIM</label>
-                            <input type="text" name="NIM" class="form-control" id="inputPassword4" placeholder="NIM Mahasiswa">
+                            <input type="text" name="NIM" class="form-control" id="inputPassword4" value="<?php echo $NIMtampil;?>">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Kelas</label>
-                            <input type="text" name="Kelas" class="form-control" id="inputPassword4" placeholder="Kelas Mahasiswa">
+                            <input type="text" name="Kelas" class="form-control" id="inputPassword4" value="<?php echo $Kelastampil;?>">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Email</label>
-                            <input type="email" name="Email" class="form-control" id="inputPassword4" placeholder="Email Mahasiswa">
+                            <input type="email" name="Email" class="form-control" id="inputPassword4" value="<?php echo $Emailtampil;?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">Alamat</label>
-                        <input type="text" name="Alamat" class="form-control" id="inputAddress" placeholder="Alamat">
+                        <input type="text" name="Alamat" class="form-control" id="inputAddress" value="<?php echo $Alamattampil;?>">
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </form>

@@ -45,11 +45,26 @@ Class Mahasiswa {
         return $mysql;
     }
 
-    public function EditDataMahasiswa($Id) {
+    public function EditDataMahasiswa() {
+        global $Id,$Nama,$NIM,$Alamat,$Kelas,$Email;
         include ("koneksi.php");
-        $query = " ";
+        $query = "update tb_mahasiswa set Nama_Mahasiswa = '$Nama', NIM =$NIM, Alamat='$Alamat', Kelas='$Kelas', 
+        Email ='$Email' where Id = $Id";
         $mysql = mysqli_query($koneksi,$query);
     }
+    
+    public function HapusDataMahasiswa($Id) {
+        include ("koneksi.php");
+        $query = "delete from tb_mahasiswa where Id ='$Id'";
+        $mysql = mysqli_query($koneksi,$query);
+    }
+
+    public function HapusAkunMahasiswa($Id) {
+        include ("koneksi.php");
+        $query = "update tb_mahasiswa set User_Id = null where Id = $Id";
+        $mysql = mysqli_query($koneksi,$query);
+    }
+
     public function isidatamahasiswa($Id,$NIM,$Nama,$Kelas,$Email,$Alamat) {
         $this->Id = $Id;
         $this->NIM =$NIM;

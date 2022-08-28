@@ -94,14 +94,13 @@ $user = new User();
                             <th scope="col">Username</th>
                             <th scope="col">Role</th>
                             <th scope="col">Pemilik</th>
-                            <th scope="col">E-mail</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
 
                     <!--script php -->
                     <?php
-                    $mysql = $user->AmbilDataUserMahasiswa();
+                    $mysql = $user->AmbilDataUser();
                     $i = 1;
 
                     while ($tampil = mysqli_fetch_assoc($mysql)) {
@@ -109,15 +108,31 @@ $user = new User();
                     <tr>
                         <td>$i</td>
                         <td>$tampil[Username]</td>
-                        <td>$tampil[Role]</td>
- 			            <td>$tampil[Nama_Mahasiswa]</td>
-                        <td>$tampil[Email]</td>
-
- 			            <td>
-                                 <a href='?hapus=$tampil[Username]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
-                        </td>
- 			        </tr>";
-
+                        <td>$tampil[Role]</td>";
+                        
+                        switch($tampil['Role']) {
+                            case "Mahasiswa" :
+                                echo "<td>$tampil[Nama_Mahasiswa]</td>
+                                    <td>
+                                    <a href='hapususer.php?Id_User=$tampil[Id_User]&Role=$tampil[Role]&Id=$tampil[Id_Mahasiswa]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                                    </td>
+ 			                    </tr>";
+                                break;
+                            case "Dosen" || "Admin" :
+                                echo "<td>$tampil[Nama_Dosen]</td>
+                                <td>
+                                    <a href='hapususer.php?Id_User=$tampil[Id_User]&Role=$tampil[Role]&Id=$tampil[Id_Dosen]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                                    </td>
+ 			                    </tr>";
+                                break;
+                            case "Koordinator KP" :
+                                echo "<td></td>
+                                <td>
+                                    <a href='hapususer.php?Id_User=$tampil[Id_User]&Role=$tampil[Role]&Id=$tampil[Id_Dosen]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                                    </td>
+ 			                    </tr>";
+                                break;
+                        }
                         $i++;
                     }
                     ?>

@@ -47,6 +47,19 @@ Class User {
         return $mysql;
     }
 
+    public function AmbilDataUser() {
+        include ("koneksi.php");
+        $query = "select tb_user.Id as Id_User, Username, Role, Nama_Mahasiswa , Nama_Dosen, tb_mahasiswa.Id as Id_Mahasiswa,
+        tb_dosen.Id as Id_Dosen from tb_user 
+        left join tb_user_role on Id_Role = Id_User 
+        left join tb_dosen on tb_dosen.User_Id = tb_user.Id 
+        left join tb_mahasiswa on tb_mahasiswa.User_Id = tb_user.Id
+        order by Username asc";
+        $mysql = mysqli_query($koneksi,$query);
+        return $mysql;
+
+    }
+
     public function EditDataUser() {
         include ("koneksi.php");
         $query = " ";
@@ -61,6 +74,16 @@ Class User {
         $this->NI = $NI;
         $this->Nama = $Nama;
         ;
+    }
+
+    public function HapusDataUser($Id) {
+        include ("koneksi.php");
+        $query = "delete from tb_user where Id = $Id";
+        $mysql = mysqli_query($koneksi,$query);
+    }
+
+    public function Gantipassword() {
+        
     }
 
     public function IsiIdRole($Role) {

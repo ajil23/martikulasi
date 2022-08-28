@@ -2,6 +2,29 @@
 include ("koneksi.php");
 
 class Ujian {
+    public $Id;
+    public $Dosen_Penguji;
+    public $Tanggal;
+    public $Hari;
+    Public $ACC;
+
+    public function FindIUjian () {
+        include ("koneksi.php");
+        $query = "select Id from tb_acc_ujian order by Id desc limit 1";
+        $mysql = mysqli_query($koneksi,$query);
+        $Id;
+
+        if  (mysqli_num_rows($mysql) === 1) {
+            while ($input = mysqli_fetch_assoc($mysql)) {
+                $Id = $input["Id"] + 1 ;
+            }
+        } else {
+            $Id = 1;
+        }
+
+        return $Id;
+    }
+
     public function AmbilDataUjian() {
         include ("koneksi.php");
        
@@ -16,6 +39,27 @@ class Ujian {
 
         return $mysql;
     } 
+
+    public function InputJadwalUjian() {
+        include("koneksi.php");
+
+        $query = "insert tb_acc_ujian valuse ($Id,'$Dosen_Penguji',$Tanggal,'$ACC_Ujian')";
+        $mysql = mysqli_query($koneksi,$query);
+    }
+
+    public function inputDataUjian($Id) {
+        include ("koneksi.php");
+
+        $query = "update tb_pendaftaran_ujian_kp set Jadwal_Ujian = '$Hari', ACC_ujian_Id = $Id";
+        $mysql = mysqli_query($koneksi,$query);
+    }
+
+    public function IsiDataUjian($Id,$Dosen_Penguji,$Tanggal,$ACC_Ujian) {
+        $this->Id =$Id;
+        $this->Dosen_Penguji = $Dosen_Penguji;
+        $this->Tanggal = $Tanggal;
+        $this->ACC_Ujian = $ACC_Ujian;
+    }
 }
 
 $Ujian = new Ujian();
@@ -104,7 +148,7 @@ $Ujian = new Ujian();
                             <th scope="col" colspan="2">Aksi</th>
                         </tr>
                     </thead>
-
+ 
                     <!--script php -->
                     <?php
                     $ambildata = $Ujian->AmbilDataUjian();
