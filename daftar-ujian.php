@@ -88,7 +88,7 @@ $Ujian = new Ujian();
                     </thead>
  
                     <!-- script php -->
-                    <?php
+                    <!-- <?php
                     $ambildata = $Ujian->AmbilDataTampilUjian();
                     $i = 1;
 
@@ -111,7 +111,7 @@ $Ujian = new Ujian();
                        $i++;
                     }
             
-                    ?>
+                    ?> -->
                 </table>
                 <div class="float">
                     <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
