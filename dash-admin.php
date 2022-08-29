@@ -1,4 +1,34 @@
 <?php
+include("koneksi.php");
+
+$JumlahMahasiswa;
+$JumlahPendaftarKP;
+$JumlahPendaftarUjian;
+
+$query = "select count(Id) as JumlahMahasiswa from tb_Mahasiswa";
+$mysql = mysqli_query($koneksi,$query);
+
+while ($ambildata = mysqli_fetch_assoc($mysql)) {
+    $JumlahMahasiswa = $ambildata['JumlahMahasiswa'];
+
+}
+
+$query1 = "select count(Id) as JumlahMahasiswa from tb_pendaftaran_kp";
+$mysql1 = mysqli_query($koneksi,$query1);
+
+while ($ambildata = mysqli_fetch_assoc($mysql1)) {
+    $JumlahPendaftarKP = $ambildata['JumlahMahasiswa'];
+
+}
+
+$query2 = "select count(Id) as JumlahMahasiswa from tb_pendaftaran_ujian_kp";
+$mysql2 = mysqli_query($koneksi,$query2);
+
+while ($ambildata = mysqli_fetch_assoc($mysql2)) {
+    $JumlahPendaftarUjian = $ambildata['JumlahMahasiswa'];
+
+}
+
 
 ?>
 
@@ -81,21 +111,21 @@
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-header">Jumlah Mahasiswa</div>
                         <div class="card-body">
-                            <h1 class="card-title">210</h1>
+                            <h1 class="card-title"><?php echo $JumlahMahasiswa;?></h1>
                             <p class="card-text">Mahasiswa jurusan teknik informatika</p>
                         </div>
                     </div>
                     <div class="card text-white bg-warning mb-3">
                         <div class="card-header">Jumlah Pendaftar KP</div>
                         <div class="card-body">
-                            <h1 class="card-title">200</h1>
+                            <h1 class="card-title"><?php echo $JumlahPendaftarKP;?></h1>
                             <p class="card-text">Mahasiswa yang sudah mendaftar kerja praktek</p>
                         </div>
                     </div>
                     <div class="card text-white bg-success mb-3">
                     <div class="card-header">Jumlah Pendaftar Ujian KP</div>
                         <div class="card-body">
-                            <h1 class="card-title">190</h1>
+                            <h1 class="card-title"><?php echo $JumlahPendaftarUjian;?></h1>
                             <p class="card-text">Mahasiswa yang mendaftar ujian kerja praktek</p>
                         </div>
                     </div>

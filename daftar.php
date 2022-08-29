@@ -1,44 +1,6 @@
 <?php
-class KP
-{
-    public $Id;
-    public $tanggalmulai;
-    public $tanggalselesai;
-
-    public function AmbilDataKP()
-    {
-        include("koneksi.php");
-
-        $query = "select tb_pendaftaran_kp.Id as Id, Proposal, Tanggal_Mulai, Tanggal_Selesai, 
-        Nama_Mahasiswa, tb_mahasiswa.NIM as NIM, Nama_Dosen, Nama_Perusahaan from tb_pendaftaran_kp 
-        left join tb_perusahaan on tb_pendaftaran_kp.Perusahaan_Id = tb_perusahaan.Id
-        left join tb_anggota_kelompok on tb_pendaftaran_kp.Anggota_Kelompok_Id = tb_anggota_kelompok.Id
-        left join tb_mahasiswa on tb_mahasiswa.Anggota_Kelompok_Id = tb_anggota_kelompok.Id
-        left join tb_dosen on tb_pendaftaran_kp.Dosen_Id = tb_dosen.Id";
-        $mysql = mysqli_query($koneksi, $query);
-
-        return $mysql;
-    }
-
-    public function Updatejadwal()
-    {
-        include("koneksi.php");
-
-        $query = "update tb_pendaftaran_kp set Tanggal_Mulai = '$tanggalmulai', Tanggal_Selesai = '$tanggalselesai' 
-        where Id = $Id";
-        $mysql = mysqli_query($koneksi, $query);
-    }
-
-    public function IsisDataKP($Id, $tanggalmulai, $tanggalselesai)
-    {
-        $this->Id = $Id;
-        $this->tanggalmulai = $tanggalmulai;
-        $this->tanggalselesai = $tanggalselesai;
-    }
-}
-
+include ("objekkp.php");
 $KP = new KP();
-
 ?>
 
 <!DOCTYPE html>
@@ -118,17 +80,18 @@ $KP = new KP();
                 </div>
                 <table class="table" border="1">
                     <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Proposal</th>
-                            <th scope="col">Perusahaan</th>
-                            <th scope="col">NIM</th>
-                            <th scope="col">Mahasiswa</th>
-                            <th scope="col">Dosen</th>
-                            <th scope="col">Mulai</th>
-                            <th scope="col">Selesai</th>
-                            <th scope="col" colspan="2">Aksi</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Perusahaan</th>
+                        <th scope="col">NIM</th>
+                        <th scope="col">Mahasiswa</th>
+                        <th scope="col">Kelas</th>
+                        <th scope="col">Dosen Pembimbing</th>
+                        <th scope="col">Mulai</th>
+                        <th scope="col">Selesai</th>
+                        <th scope="col">Proposal</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
                     </thead>
 
                     <!--script php -->
@@ -140,17 +103,17 @@ $KP = new KP();
                         echo "
                         <tr>
                             <td>$i</td>
-                            <td>$tampil[Proposal]</td>
                             <td>$tampil[Nama_Perusahaan]</td>
                             <td>$tampil[NIM]</td>
                             <td>$tampil[Nama_Mahasiswa]</td>
+                            <td>$tampil[Kelas]</td>
                             <td>$tampil[Nama_Dosen]</td>
                             <td>$tampil[Tanggal_Mulai]</td>
                             <td>$tampil[Tanggal_Selesai]</td>
+                            <td>$tampil[Proposal]</td>
                             <td>
-                                <a href='#' class='btn btn-success'>Buat jadwal</a>
-                            </td>
-                            <td>
+                                 <!--<a href='#' class='btn btn-success'>Buat jadwal</a>-->
+
                                  <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                             </td>
                         </tr>";

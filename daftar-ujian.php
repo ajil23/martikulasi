@@ -1,69 +1,6 @@
 <?php
-include ("koneksi.php");
-
-class Ujian {
-    public $Id;
-    public $Dosen_Penguji;
-    public $Tanggal;
-    public $Hari;
-    Public $ACC;
-
-    public function FindIUjian () {
-        include ("koneksi.php");
-        $query = "select Id from tb_acc_ujian order by Id desc limit 1";
-        $mysql = mysqli_query($koneksi,$query);
-        $Id;
-
-        if  (mysqli_num_rows($mysql) === 1) {
-            while ($input = mysqli_fetch_assoc($mysql)) {
-                $Id = $input["Id"] + 1 ;
-            }
-        } else {
-            $Id = 1;
-        }
-
-        return $Id;
-    }
-
-    public function AmbilDataUjian() {
-        include ("koneksi.php");
-       
-        $query = "select tb_pendaftaran_ujian_kp.Id as Id, Laporan_KP, tb_pendaftaran_ujian_kp.Jadwal_Ujian as Hari, 
-        tb_acc_ujian.Jadwal_Ujian as Tanggal,Nama_Mahasiswa, tb_mahasiswa.NIM as NIM
-        from tb_pendaftaran_ujian_kp
-        left join tb_acc_ujian on tb_acc_ujian.Id = tb_pendaftaran_ujian_kp.ACC_Ujian_Id
-        left join tb_pendaftaran_kp on tb_pendaftaran_kp.Id = tb_pendaftaran_ujian_kp.Pendaftaran_KP_Id
-        left join tb_anggota_kelompok on tb_pendaftaran_kp.Anggota_Kelompok_Id = tb_anggota_kelompok.Id
-        left join tb_mahasiswa on tb_mahasiswa.Anggota_Kelompok_Id = tb_anggota_kelompok.Id";
-        $mysql = mysqli_query($koneksi,$query);
-
-        return $mysql;
-    } 
-
-    public function InputJadwalUjian() {
-        include("koneksi.php");
-
-        $query = "insert tb_acc_ujian valuse ($Id,'$Dosen_Penguji',$Tanggal,'$ACC_Ujian')";
-        $mysql = mysqli_query($koneksi,$query);
-    }
-
-    public function inputDataUjian($Id) {
-        include ("koneksi.php");
-
-        $query = "update tb_pendaftaran_ujian_kp set Jadwal_Ujian = '$Hari', ACC_ujian_Id = $Id";
-        $mysql = mysqli_query($koneksi,$query);
-    }
-
-    public function IsiDataUjian($Id,$Dosen_Penguji,$Tanggal,$ACC_Ujian) {
-        $this->Id =$Id;
-        $this->Dosen_Penguji = $Dosen_Penguji;
-        $this->Tanggal = $Tanggal;
-        $this->ACC_Ujian = $ACC_Ujian;
-    }
-}
-
+include ("objekujian.php");
 $Ujian = new Ujian();
-
 ?>
 
 <!DOCTYPE html>
@@ -143,6 +80,7 @@ $Ujian = new Ujian();
                             <th scope="col">No</th>
                             <th scope="col">NIM</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Kelas</th>
                             <th scope="col">Laporan</th>
                             <th scope="col">Jadwal</th>
                             <th scope="col" colspan="2">Aksi</th>
@@ -150,8 +88,8 @@ $Ujian = new Ujian();
                     </thead>
  
                     <!--script php -->
-                    <?php
-                    $ambildata = $Ujian->AmbilDataUjian();
+                    <!-- <?php
+                    $ambildata = $Ujian->AmbilDataTampilUjian();
                     $i = 1;
 
                     while ($tampil = mysqli_fetch_array($ambildata)) {
@@ -160,8 +98,9 @@ $Ujian = new Ujian();
                             <td>$i</td>
                             <td>$tampil[NIM]</td>
                             <td>$tampil[Nama_Mahasiswa]</td>
+                            <td>$tampil[Kelas]</td>
                             <td>$tampil[Laporan_KP]</td>
-                            <td>$tampil[Hari] $tampil[Tanggal]</td>
+                            <td>$tampil[TanggalACC]</td>
                             <td>
                             <a href='ubah.php' class='btn btn-warning'>Ubah</a>
                             </td>
@@ -172,7 +111,7 @@ $Ujian = new Ujian();
                        $i++;
                     }
             
-                    ?>
+                    ?> -->
                 </table>
                 <div class="float">
                     <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
