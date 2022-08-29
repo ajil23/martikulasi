@@ -111,7 +111,7 @@ $mahasiswa = new Mahasiswa();
 
                         while ($tampil = mysqli_fetch_assoc($mysql)) {
                             echo "
-                    <tr>
+                         <tr>
                         <td>$i</td>
                         <td>$tampil[NIM]</td>
                         <td>$tampil[Nama_Mahasiswa]</td>
@@ -124,8 +124,8 @@ $mahasiswa = new Mahasiswa();
                         <td>
                         <a href='hapusmahasiswa.php?Id=$tampil[Id]?' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                         </td>
-                    </tr>
-                    ";
+                        </tr>
+                        ";
                             $i++;
                         }
                         ?>
