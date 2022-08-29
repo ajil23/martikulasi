@@ -189,15 +189,14 @@ $Ujian = new Ujian();
                             <div class="modal-body">
                                 <form>
                                 <div class="form-group">
-                                        <label for="formGroupExampleInput2">Judul Laporan Kerja Praktek</label>
+                                    <div>
+                                        <label for="formGroupExampleInput2">Dosen Pembimbing</label>
                                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Judul">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">File Laporan Kerja Praktek</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile">
-                                            <label class="custom-file-label" for="customFile">Cari file</label>
-                                        </div>
+
+                                    <div>
+                                        <label for="formGroupExampleInput2">Kelas</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Judul">
                                     </div>
                                     <div class="form-group">
                                         <label for="formGroupExampleInput2">Jadwal</label>
