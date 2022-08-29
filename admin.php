@@ -103,7 +103,7 @@ $nilai = new Nilai();
                     $i = 1;
 
                     while ($tampil = mysqli_fetch_array($mysql)){
-                        $rata2 = $tampil["Nilai_Pembimbing_Lapangan"] + $tampil["Nilai_Pembimbing_KP"] + $tampil["Nilai_Penguji"] / 3;
+                        $rata2 = ($tampil["Nilai_Pembimbing_Lapangan"] + $tampil["Nilai_Pembimbing_KP"] + $tampil["Nilai_Penguji"]) / 3;
                         echo "
                         <tr>
                             <td>$i</td>
