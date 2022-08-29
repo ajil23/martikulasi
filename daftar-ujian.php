@@ -103,8 +103,9 @@ $Ujian = new Ujian();
                             <td>$tampil[TanggalACC]</td>
                             <td>
                             <a href='ubah.php' class='btn btn-warning'>Ubah</a>
-                           
-                            <a href='#' class='btn btn-danger'>Hapus</a>
+                            </td>
+                            <td>
+                            <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                             </td>
                        </tr>";
                        $i++;

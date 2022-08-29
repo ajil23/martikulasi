@@ -15,6 +15,13 @@ if (isset($_POST['submit'])) {
             if ($Nama == $ambil["Nama_Dosen"] && $NIK == $ambil["NIK"]) {
                 $boolean = true;
                 // pesen salah data sudah terdaftar di dalam database
+                function alertWindow($msg)
+                {
+                    echo "<script type ='text/JavaScript'>";
+                    echo "alert('$msg')";
+                    echo "</script>";
+                }
+                alertWindow("Data sudah terdaftar di dalam database");
 
                 header("location:  http://localhost/martikulasi/dosen-plus.php");
             }
@@ -29,6 +36,13 @@ if (isset($_POST['submit'])) {
 
     } else{
     // pesan salah data tidak boleh kosong 
+    function alertWindow($msg)
+    {
+        echo "<script type ='text/JavaScript'>";
+        echo "alert('$msg')";
+        echo "</script>";
+    }
+    alertWindow("Data tidak boleh kosong ");
     }
 }
 ?>

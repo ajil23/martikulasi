@@ -100,10 +100,6 @@ while ($ambildata = mysqli_fetch_assoc($mysql2)) {
     </nav>
 
     <section class="dashboard">
-        <div class="top">
-            <i></i>
-            <img src="asset/dosen.jpg" alt="">
-        </div>
 
         <div class="dash-content">
             <div class="overview">
