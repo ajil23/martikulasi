@@ -85,7 +85,11 @@ $Dosen = new Dosen();
                     <i class="uil uil-user-md"></i>
                     <span class="text">Dosen</span>
                 </div>
-                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
+                <div>
+                    <a href='dosen-plus.php' class='btn btn-success'>Tambah data</a>
+                </div>
+                <br>
+                <div class="#">
                     <table class="table table-bordered table-striped mb-0" border="1">
                         <thead class="thead-dark">
                             <tr>
@@ -121,9 +125,6 @@ $Dosen = new Dosen();
                     </table>
                 </div>
                 <br>
-            </div>
-            <div>
-                <a href='dosen-plus.php' class='btn btn-success'>Tambah data</a>
             </div>
         </div>
     </section>

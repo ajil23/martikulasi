@@ -1,5 +1,5 @@
 <?php
-include ("objekmahasiswa.php");
+include("objekmahasiswa.php");
 $mahasiswa = new Mahasiswa();
 
 ?>
@@ -86,19 +86,23 @@ $mahasiswa = new Mahasiswa();
                     <i class="uil uil-book-reader"></i>
                     <span class="text">Mahasiswa</span>
                 </div>
-                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
-                <table class="table table-bordered table-striped mb-0" border="1" >
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">NIM</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Kelas</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col" colspan="2">Aksi</th>
-                        </tr>
-                    </thead>
+                <div>
+                    <a href='mahasiswa-plus.php' class='btn btn-success'>Tambah data</a>
+                </div>
+                <br>
+                <div class="#">
+                    <table class="table table-bordered table-striped mb-0" border="1">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">NIM</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Kelas</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col" colspan="2">Aksi</th>
+                            </tr>
+                        </thead>
 
                         <!--script php -->
                         <?php
@@ -129,9 +133,6 @@ $mahasiswa = new Mahasiswa();
                     </table>
                 </div>
                 <br>
-            </div>
-            <div>
-                <a href='mahasiswa-plus.php' class='btn btn-success'>Tambah data</a>
             </div>
     </section>
 
