@@ -35,7 +35,7 @@ class KP {
     public function HapusDataKP($Id) {
         include ("koneksi.php");
 
-        $query = "delete from tb_pendaftaran_kp ";
+        $query = "delete from tb_pendaftaran_kp where Id = $Id";
         $mysql = mysqli_query($koneksi,$query);
     }
 }

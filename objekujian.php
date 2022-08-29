@@ -23,11 +23,11 @@ class Ujian {
         return $Id;
     }
 
-    public function AmbilDataUjian() {
+    public function AmbilDataTampilUjian() {
         include ("koneksi.php");
        
-        $query = "select tb_pendaftaran_ujian_kp.Id as Id_Ujia, Laporan_KP, tb_pendaftaran_ujian_kp.Jadwal_Ujian as TanggalJadwal, 
-        tb_acc_ujian.Jadwal_Ujian as TanggalACC,Nama_Mahasiswa, tb_mahasiswa.NIM as NIM, Kelas
+        $query = "select tb_pendaftaran_ujian_kp.Id as Id_Ujian, Laporan_KP, tb_pendaftaran_ujian_kp.Jadwal_Ujian as TanggalJadwal, 
+        tb_acc_ujian.Jadwal_Ujian as TanggalACC,Nama_Mahasiswa, tb_mahasiswa.NIM as NIM, Kelas, Dosen_Penguji
         from tb_pendaftaran_ujian_kp
         left join tb_acc_ujian on tb_acc_ujian.Id = tb_pendaftaran_ujian_kp.ACC_Ujian_Id
         left join tb_pendaftaran_kp on tb_pendaftaran_kp.Id = tb_pendaftaran_ujian_kp.Pendaftaran_KP_Id
@@ -45,7 +45,7 @@ class Ujian {
         $mysql = mysqli_query($koneksi,$query);
     }
 
-    public function inputDataUjian($Id) {
+    public function inputDataUjian($Id,$Hari) {
         include ("koneksi.php");
 
         $query = "update tb_pendaftaran_ujian_kp set Jadwal_Ujian = '$Hari', ACC_ujian_Id = $Id";
@@ -57,6 +57,13 @@ class Ujian {
         $this->Dosen_Penguji = $Dosen_Penguji;
         $this->Tanggal = $Tanggal;
         $this->ACC_Ujian = $ACC_Ujian;
+    }
+
+    public function HapusDataUjian($Id) {
+        include ("koneksi.php");
+
+        $query = "delete from tb_pendaftaran_ujian_kp where Id = $Id";
+        $mysql = mysqli_query($koneksi,$query);
     }
 }
 ?>

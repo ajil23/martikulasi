@@ -89,7 +89,7 @@ $Ujian = new Ujian();
  
                     <!--script php -->
                     <!-- <?php
-                    $ambildata = $Ujian->AmbilDataUjian();
+                    $ambildata = $Ujian->AmbilDataTampilUjian();
                     $i = 1;
 
                     while ($tampil = mysqli_fetch_array($ambildata)) {
