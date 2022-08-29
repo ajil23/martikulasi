@@ -27,7 +27,7 @@ class Ujian {
         include ("koneksi.php");
        
         $query = "select tb_pendaftaran_ujian_kp.Id as Id_Ujian, Laporan_KP, tb_pendaftaran_ujian_kp.Jadwal_Ujian as TanggalJadwal, 
-        tb_acc_ujian.Jadwal_Ujian as TanggalACC,Nama_Mahasiswa, tb_mahasiswa.NIM as NIM, Kelas, Dosen_Penguji
+        tb_acc_ujian.Jadwal_Ujian as TanggalACC,Nama_Mahasiswa, tb_mahasiswa.NIM as NIM, Kelas,
         from tb_pendaftaran_ujian_kp
         left join tb_acc_ujian on tb_acc_ujian.Id = tb_pendaftaran_ujian_kp.ACC_Ujian_Id
         left join tb_pendaftaran_kp on tb_pendaftaran_kp.Id = tb_pendaftaran_ujian_kp.Pendaftaran_KP_Id
