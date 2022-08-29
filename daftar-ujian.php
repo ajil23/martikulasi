@@ -87,12 +87,12 @@ $Ujian = new Ujian();
                         </tr>
                     </thead>
  
-                    <!--script php -->
-                    <!-- <?php
+                    <!-- script php -->
+                    <?php
                     $ambildata = $Ujian->AmbilDataTampilUjian();
                     $i = 1;
 
-                    while ($tampil = mysqli_fetch_array($ambildata)) {
+                    while ($tampil = mysqli_fetch_assoc($ambildata)) {
                         echo "
                         <tr>
                             <td>$i</td>
@@ -105,13 +105,13 @@ $Ujian = new Ujian();
                             <a href='ubah.php' class='btn btn-warning'>Ubah</a>
                             </td>
                             <td>
-                            <a href='?hapus=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
+                            <a href='?hapus' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                             </td>
                        </tr>";
                        $i++;
                     }
             
-                    ?> -->
+                    ?>
                 </table>
                 <div class="float">
                     <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
