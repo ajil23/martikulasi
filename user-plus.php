@@ -1,5 +1,5 @@
 <?php
-include ("objekuser.php");
+include("objekuser.php");
 $user = new User();
 ?>
 
@@ -86,65 +86,64 @@ $user = new User();
                     <i class="uil uil-user-plus"></i>
                     <span class="text">User</span>
                 </div>
-                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="overflow-y:auto;">
-                <table class="table table-bordered table-striped mb-0" border="1">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Pemilik</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
+                <div>
+                    <a href='tambah-user.php' class='btn btn-success'>Tambah data</a>
+                </div>
+                <br>
+                <div class="#">
+                    <table class="table table-bordered table-striped mb-0" border="1">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Pemilik</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
 
-                    <!--script php -->
-                    <?php
-                    $mysql = $user->AmbilDataUser();
-                    $i = 1;
+                        <!--script php -->
+                        <?php
+                        $mysql = $user->AmbilDataUser();
+                        $i = 1;
 
-                    while ($tampil = mysqli_fetch_assoc($mysql)) {
-                        echo "
+                        while ($tampil = mysqli_fetch_assoc($mysql)) {
+                            echo "
                     <tr>
                         <td>$i</td>
                         <td>$tampil[Username]</td>
                         <td>$tampil[Role]</td>";
-                        
-                        switch($tampil['Role']) {
-                            case "Mahasiswa" :
-                                echo "<td>$tampil[Nama_Mahasiswa]</td>
+
+                            switch ($tampil['Role']) {
+                                case "Mahasiswa":
+                                    echo "<td>$tampil[Nama_Mahasiswa]</td>
                                     <td>
                                     <a href='hapususer.php?Id_User=$tampil[Id_User]&Role=$tampil[Role]&Id=$tampil[Id_Mahasiswa]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                                     </td>
  			                    </tr>";
-                                break;
-                            case "Dosen" || "Admin" :
-                                echo "<td>$tampil[Nama_Dosen]</td>
+                                    break;
+                                case "Dosen" || "Admin":
+                                    echo "<td>$tampil[Nama_Dosen]</td>
                                 <td>
                                     <a href='hapususer.php?Id_User=$tampil[Id_User]&Role=$tampil[Role]&Id=$tampil[Id_Dosen]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                                     </td>
  			                    </tr>";
-                                break;
-                            case "Koordinator KP" :
-                                echo "<td></td>
+                                    break;
+                                case "Koordinator KP":
+                                    echo "<td></td>
                                 <td>
                                     <a href='hapususer.php?Id_User=$tampil[Id_User]&Role=$tampil[Role]&Id=$tampil[Id_Dosen]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                                     </td>
  			                    </tr>";
-                                break;
+                                    break;
+                            }
+                            $i++;
                         }
-                        $i++;
-                    }
-                    ?>
-                </table>
+                        ?>
+                    </table>
                 </div>
-                
-            </div>
-            <br>
-            <div>
-                <a href='tambah-user.php' class='btn btn-success'>Tambah data</a>
-            </div>
 
+            </div>
         </div>
         </div>
     </section>
