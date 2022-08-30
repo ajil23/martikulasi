@@ -1,8 +1,3 @@
-<?php
-include ("objekujian.php");
-$Ujian = new Ujian();
-?>
-
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
@@ -77,42 +72,46 @@ $Ujian = new Ujian();
                 <table class="table" border="1">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">NIM</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Kelas</th>
-                            <th scope="col">Laporan</th>
-                            <th scope="col">Jadwal</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Laporan KP</th>
+                            <th scope="col">Jadwal Ujian</th>
+                            <th scope="col">ACC Ujian</th>
                             <th scope="col" colspan="2">Aksi</th>
                         </tr>
                     </thead>
- 
-                    <!-- script php -->
-                     <?php
-                    $ambildata = $Ujian->AmbilDataTampilUjian();
-                    $i = 1;
 
-                    while ($tampil = mysqli_fetch_assoc($ambildata)) {
+                    <!-- script php -->
+                    <?php
+                    include("koneksi.php");
+                    $no = 1;
+                    $ambildata = mysqli_query($koneksi, "select tb_pendaftaran_ujian_kp.Id, Laporan_KP, tb_pendaftaran_ujian_kp.Jadwal_Ujian, ACC_Ujian_Id FROM tb_pendaftaran_ujian_kp
+                    LEFT JOIN tb_acc_ujian ON tb_pendaftaran_ujian_kp.ACC_Ujian_Id = tb_acc_ujian.Id ");
+                    while ($tampil = mysqli_fetch_array($ambildata)) {
                         echo "
                         <tr>
-                            <td>$i</td>
-                            <td>$tampil[NIM]</td>
-                            <td>$tampil[Nama_Mahasiswa]</td>
-                            <td>$tampil[Kelas]</td>
+                            <td>$tampil[Id]</td>
                             <td>$tampil[Laporan_KP]</td>
-                            <td>$tampil[TanggalACC]</td>
+                            <td>$tampil[Jadwal_Ujian]</td>
+                            <td>$tampil[ACC_Ujian_Id]</td>
                             <td>
-                            <a href='ubah.php' class='btn btn-warning'>Ubah</a>
+                                 <a href='?Id=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                             </td>
-                            <td>
-                            <a href='?hapus' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
-                            </td>
+
                        </tr>";
-                       $i++;
                     }
-            
+
                     ?>
                 </table>
+
+
+                <?php
+                if(isset($_GET['Id'])){
+
+                mysqli_query($koneksi,"delete from tb_pendaftaran_ujian_kp where Id ='$_GET[Id]' ");
+                echo "<meta http-equiv=refresh content=0.5;URL='daftar-ujian.php'>";
+                }
+                ?>
+
                 <div class="float">
                     <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
                 </div>
@@ -127,20 +126,20 @@ $Ujian = new Ujian();
                             </div>
                             <div class="modal-body">
                                 <form>
-                                <div class="form-group">
-                                    <div>
-                                        <label for="formGroupExampleInput2">Dosen Pembimbing</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Judul">
-                                    </div>
-
-                                    <div>
-                                        <label for="formGroupExampleInput2">Kelas</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Judul">
-                                    </div>
                                     <div class="form-group">
-                                        <label for="formGroupExampleInput2">Jadwal</label>
-                                        <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-                                    </div>
+                                        <div>
+                                            <label for="formGroupExampleInput2">Dosen Pembimbing</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Judul">
+                                        </div>
+
+                                        <div>
+                                            <label for="formGroupExampleInput2">Kelas</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Masukan Judul">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Jadwal</label>
+                                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                                        </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
