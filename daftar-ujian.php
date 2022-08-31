@@ -96,7 +96,9 @@
                             <td>
                                  <a href='?Id=$tampil[Id]' class='btn btn-danger' onClick=\"return confirm('Apakah anda yakin?');\">Hapus</a>
                             </td>
-
+                            <td>
+                                 <a href='?Id=$tampil[Id]' class='btn btn-warning'>Ubah</a>
+                            </td>
                        </tr>";
                     }
 
@@ -108,8 +110,10 @@
 
                 mysqli_query($koneksi,"delete from tb_pendaftaran_ujian_kp where Id ='$_GET[Id]' ");
                 echo "<meta http-equiv=refresh content=0.5;URL='daftar-ujian.php'>";
+
                 }
                 ?>
+
 
                 <div class="float">
                     <a href='#' class='btn btn-success' data-toggle="modal" data-target="#exampleModalLong">Tambah data</a>
