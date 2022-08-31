@@ -33,10 +33,22 @@ if (isset($_POST['submit'])) {
         $Mahasiswa->EditDataMahasiswa();
             
         //pesan data berhasil di ubah
+        function alertWindow($msg) {       
+            echo "<script type ='text/JavaScript'>";  
+             echo "alert('$msg')";  
+             echo "</script>";   
+           }    
+        alertWindow("Yeay, data berhasil di ubah");   
         header("location:  http://localhost/martikulasi/mahasiswa.php");
 
     } else{
     // pesan salah data tidak boleh kosong 
+    function alertWindow($msg) {       
+        echo "<script type ='text/JavaScript'>";  
+         echo "alert('$msg')";  
+         echo "</script>";   
+       }    
+    alertWindow("Maaf, data tidak boleh kosong ");   
     }
 }
 ?>
